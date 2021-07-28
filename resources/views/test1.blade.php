@@ -1,22 +1,44 @@
+@extends('layouts.app')
 
 
-@if ($errors->any())
-    <div class="input-group mb-3">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+
+@section('title-header')
+@endsection
+
+
+
+@section('css')
+@endsection
+
+
+
+<?php
+$action = "";  ?>
+@if($action == 'show')
+@elseif($action == 'add')
+@elseif($action == 'edit')
+@else
+
+@section('main-container')
+    <div class="main-container">
+        <div class="pd-20 card-box height-100-p">
+
+            <div class="alert alert-danger" role="alert">
+                there are not action here
+            </div>
+
+        </div>
     </div>
+@endsection
+
 @endif
 
 
 
 
-<form method="post" action="{{route('login')}}">
-    @csrf
 
-    <input type="text" name="username" value="AAM1234">
-    <input type="text" name="password" value="fady1234">
-    <input type="submit">
-</form>
+@section('scripts')
+@endsection
+
+
+

@@ -120,6 +120,9 @@ Route::group($group,function (){
 
 
 
+Route::view('ee','view_app.employee');
+
+
 
 
 
