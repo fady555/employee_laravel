@@ -58,7 +58,8 @@ Route::group($group,function (){
 
     Route::get('login','LoginController@index');
     Route::post('login','LoginController@login')->name('login');
-    Route::get('logout','LoginController@logout')->name('logout');
+    Route::get('logout','LoginController@logout')->name('logout')->middleware(['login']);
+    Route::view('start-page','start_page')->name('start_page')->middleware(['login']);
 
 
 
@@ -66,6 +67,7 @@ Route::group($group,function (){
 
 
 
+    #test user to check
     Route::get('all',function (){$x = session()->all(); return $x;});
 
     Route::get('get',function (){$x =  session()->get('user_login');return $x['id'];});
@@ -114,13 +116,14 @@ Route::group($group,function (){
 
     ];
 
-    Route::get('test',function (){return "test" ; })->middleware($middleware);
-
+    //Route::get('test',function (){return "test" ; })->middleware($middleware);
+    //Route::view('ee','view_app.employee');
+    //Route::view('lo','login');
 });
 
 
 
-Route::view('ee','view_app.employee');
+
 
 
 

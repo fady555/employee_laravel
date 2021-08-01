@@ -1,9 +1,19 @@
 <div class="left-side-bar">
     <div class="brand-logo">
         <a href="index.html">
+            <img src="{{asset('them/vendors/images/img.jpg')}}" alt="" class="light-logo rounded">
+            {{------
             <img src="{{asset('them/vendors/images/deskapp-logo.svg')}}" alt="" class="dark-logo">
+
             <img src="{{asset('them/vendors/images/deskapp-logo-white.svg')}}" alt="" class="light-logo">
-        </a>
+             -----}}
+            <div class="ml-3">
+                <button type="button" class="btn btn-primary btn-lg">
+
+                    @if(session()->has('user_login')) {{\App\Employee::find((session()->get('user_login'))[0]['employee_id'])->{'full_name_'.app()->getLocale()} }} @endif
+
+                </button>
+            </div>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
             <i class="ion-close-round"></i>
         </div>
