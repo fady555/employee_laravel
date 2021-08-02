@@ -76,6 +76,8 @@ return [
     'premisess'=>'Premisess',
     'created_at'=>'Create at ',
     'updated_at'=>'Update_at',
+    'show'=>'Show',
+    'personal img'=>'Personal Img',
 
 
 

@@ -175,8 +175,12 @@
                                             <td class="table-plus">@lang('app.personal identity id')</td>
                                         </tr>
                                         <tr>
-                                            <td>--------</td>
+                                            <td><img style="display: block; max-width: 20% ; height: auto;" src="{{asset('storage/personal_identity_img/general.jpg')}}" alt=""></td>
                                             <td class="table-plus">@lang('app.personal identity img')</td>
+                                        </tr>
+                                        <tr>
+                                            <td><img style="display: block; max-width: 20% ; height: auto;"  src="{{asset('storage/avatar_employee/general.jpg')}}" alt=""></td>
+                                            <td class="table-plus">@lang('app.personal img')</td>
                                         </tr>
                                         <tr>
                                             <td>{{$employee[0]['number_of_day_vacancy']}}</td>
@@ -319,7 +323,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                ---------
+                                                <a href="{{asset('storage/contract/contract-labor-agreement.pdf')}}"><button type="button" class="btn" data-bgcolor="#bd081c" data-color="#ffffff" style="color: rgb(255, 255, 255); background-color: rgb(189, 8, 28);"><i class="fa fa-file-pdf-o"></i> @lang('app.show')</button></a>
                                             </td>
                                             <td class="table-plus">@lang('app.contract')</td>
                                         </tr>
@@ -377,7 +381,11 @@
                                         </tr>
                                         <tr>
                                             <td class="table-plus">@lang('app.personal identity img')</td>
-                                            <td>--------</td>
+                                            <td><img style="display: block; max-width: 20% ; height: auto;" src="{{asset('storage/personal_identity_img/general.jpg')}}" alt=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="table-plus">@lang('app.personal img')</td>
+                                            <td><img style="display: block; max-width: 20% ; height: auto;"  src="{{asset('storage/avatar_employee/general.jpg')}}" alt=""></td>
                                         </tr>
                                         <tr>
                                             <td class="table-plus">@lang('app.number of day vacancy')</td>
@@ -517,7 +525,7 @@
                                         <tr>
                                             <td class="table-plus">@lang('app.contract')</td>
                                             <td>
-                                                ---------
+                                                <a href="{{asset('storage/contract/contract-labor-agreement.pdf')}}"><button type="button" class="btn" data-bgcolor="#bd081c" data-color="#ffffff" style="color: rgb(255, 255, 255); background-color: rgb(189, 8, 28);"><i class="fa fa-file-pdf-o"></i> @lang('app.show')</button></a>
                                             </td>
                                         </tr>
                                         <tr>

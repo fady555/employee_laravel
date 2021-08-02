@@ -74,5 +74,8 @@ return [
     'total_discounts'=>'اجمالى الخصومات',
     'created_at'=>'انشئ فى',
     'updated_at'=>'اخر تعديل',
+    'show'=>'اظهار',
+    'personal img'=>'الصوره الشخصيه',
+
 
 ];
