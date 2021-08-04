@@ -15,6 +15,6 @@ class Contract extends Model
 
 
     public function type_of_work(){
-        return $this->hasOne('App\TypeOfWork','type_id','id');
+        return $this->belongsTo('App\TypeOfWork','type_id','id');
     }
 }

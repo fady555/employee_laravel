@@ -40,7 +40,7 @@ return [
     'email'=>'Email',
     'phone'=>'Phone',
     'name of bank'=>'Name Of Bank',
-    'name of account'=>'Name Of Account',
+    'name of account'=>'Number Of Account',
     'number of wif husband'=>'Number Of Wif Husband',
     'number of wif children'=>'Number Of Wif Children',
     'time of attendance'=>'Time Of Attendance',
@@ -50,6 +50,7 @@ return [
     'education'=>'Education',
     'level experience'=>'Level Experience ',
     'contract'=>'Contract',
+    'type of work'=>'Type Of Work',
     'user'=>'User',
     'code'=>'Code',
     'address list'=>'Address List',
@@ -78,6 +79,19 @@ return [
     'updated_at'=>'Update_at',
     'show'=>'Show',
     'personal img'=>'Personal Img',
+
+    //add employee
+    'personal information'=>'Personal Information',
+    'add employee' => 'Add Employee ',
+    'full_name_en'=>'English Full Name :',
+    'full_name_ar'=>'Arabic Full Name :',
+    'full_name_fr'=>'France Full Name :',
+    'create jop'=>'Create Jop:',
+    'create type work'=>'Create Type Work:',
+    'qualification'=>'Qualification',
+    'create education status'=>'Create Education Status',
+
+
 
 
 

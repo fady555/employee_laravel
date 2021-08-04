@@ -49,6 +49,7 @@ return [
     'education'=>'التعليم',
     'level experience'=>'مستوى الخبره',
     'contract'=>'العقد',
+    'type of work'=>'نوع العمل',
     'user'=>'المستخدم',
     'code'=>'الكود',
     'address list'=>'تفاصيل العنوان',
