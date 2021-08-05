@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\ControllerHr;
 
+use App\Country;
 use App\Employee;
 use App\Http\Controllers\Controller;
 use App\Jop;
+use App\Premisese;
 use App\Rules\Arabic;
 use App\Rules\Phone;
 use Illuminate\Http\Request;
@@ -53,7 +55,9 @@ class EmployeeController extends Controller
     public function create()
     {
         $jops = Jop::get();
-        return view('view_app.employee')->with('action','add')->with(['jops'=>$jops]);
+        $countries = Country::get();
+        $premisess = Premisese::get();
+        return view('view_app.employee')->with('action','add')->with(['jops'=>$jops,'countries'=>$countries,'premisess'=>$premisess]);
     }
 
 
@@ -85,7 +89,22 @@ class EmployeeController extends Controller
             'time_of_going'=>['required','string'],
             'contract'=>['size:500'],
             'fixed_salary'=>['numeric'],
-            //
+            // THE THIREd three SECTION qalification
+            'education_status_id'=>['required','exists:education_statuses,id'],
+            'degree_id'=>['required','exists:degrees,id'],
+            'level_experience_id'=>['required','exists:level_experiences,id'],
+            'experience_description'=>['required','exists:employees,education_statuses'],
+            // THE THIREd for  SECTION Address
+            'country_id'=>['required','numeric','exists:countries,id'],
+            'city_id'=>['nullable','numeric','exists:cities,id'],
+            'address_desc_en'=>['required','string'],
+            'address_desc_ar'=>['required','string',new Arabic()],
+            'address_desc_fr'=>['string'],
+            // THE five  SECTION user
+            'username'=>['required','unique:users,username'],
+            'password'=>['required','size:8'],
+            'premisess.*'=>['required','exists:premisess,id','array'],
+
 
 
 

@@ -22,6 +22,7 @@ class User extends Authenticatable
         'api_token',
         'premisses',
     ];
+    protected $hidden =['password'];
 
 
     public function employee(){

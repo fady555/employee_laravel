@@ -119,6 +119,8 @@ Route::group($group,function (){
     //Route::get('test',function (){return "test" ; })->middleware($middleware);
     //Route::view('ee','view_app.employee');
     //Route::view('lo','login');
+
+    Route::view('testq','test1');
 });
 
 

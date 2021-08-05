@@ -73,6 +73,39 @@ Route::get('education_status',function (){
     $education = \App\EducationStatus::get();
     return json_encode($education);
 });
+Route::get('degrees',function (){
+    $degrees = \App\Degree::get();
+    return json_encode($degrees);
+});
+Route::get('experience',function (){
+    $experience = \App\LevelExperience::get();
+    return json_encode($experience);
+});
+
+Route::get('cities/{country_id}',function ($country_id){
+    $cities = \App\City::where('country_id',$country_id)->get();
+    return json_encode($cities);
+});
+
+
+Route::get('generate-username',function (){
+
+    //return rand(0,10000000);
+
+    function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
+    return generateRandomString(5).rand(0,10000000);
+});
+
+
 
 
 

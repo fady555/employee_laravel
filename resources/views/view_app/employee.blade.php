@@ -11,6 +11,13 @@
 
     <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/jquery-steps/jquery.steps.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('them/vendors/styles/style.css')}}">
+    {{----------------switchery css --------------------------------}}
+    <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/switchery/switchery.min.css')}}">
+    {{----------------bootstrap-tagsinput css--------------------------------}}
+    <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css')}}">
+    {{---------------bootstrap-touchspin css---------------------------------}}
+    <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('them/vendors/styles/style.css')}}">
 @endsection
 
 
@@ -30,25 +37,20 @@
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
                                         <div class="title">
-                                            <h4>DataTable</h4>
+                                            <h4>Form</h4>
                                         </div>
                                         <nav aria-label="breadcrumb" role="navigation">
                                             <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="index.html">@lang('app.employee')</a></li>
-                                                <li class="breadcrumb-item active" aria-current="page">@lang('app.show employee')</li>
+                                                <li class="breadcrumb-item"><a href="index.html">@lang('app.home')</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page">@lang('app.information')</li>
                                             </ol>
                                         </nav>
                                     </div>
                                     <div class="col-md-6 col-sm-12 text-right">
                                         <div class="dropdown">
-                                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                January 2018
+                                            <a class="btn btn-primary" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                                {{date('D(d)-M(m)-Y')}}
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#">Export List</a>
-                                                <a class="dropdown-item" href="#">Policies</a>
-                                                <a class="dropdown-item" href="#">View Assets</a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -122,25 +124,20 @@
                                     <div class="row">
                                         <div class="col-md-6 col-sm-12">
                                             <div class="title">
-                                                <h4>DataTable</h4>
+                                                <h4>Form</h4>
                                             </div>
                                             <nav aria-label="breadcrumb" role="navigation">
                                                 <ol class="breadcrumb">
-                                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                                    <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                                                    <li class="breadcrumb-item"><a href="index.html">@lang('app.home')</a></li>
+                                                    <li class="breadcrumb-item active" aria-current="page">@lang('app.information')</li>
                                                 </ol>
                                             </nav>
                                         </div>
                                         <div class="col-md-6 col-sm-12 text-right">
                                             <div class="dropdown">
-                                                <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                    January 2018
+                                                <a class="btn btn-primary" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                                    {{date('D(d)-M(m)-Y')}}
                                                 </a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#">Export List</a>
-                                                    <a class="dropdown-item" href="#">Policies</a>
-                                                    <a class="dropdown-item" href="#">View Assets</a>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -583,25 +580,20 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-12">
                                     <div class="title">
-                                        <h4>DataTable</h4>
+                                        <h4>Form</h4>
                                     </div>
                                     <nav aria-label="breadcrumb" role="navigation">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                                            <li class="breadcrumb-item"><a href="index.html">@lang('app.home')</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">@lang('app.information')</li>
                                         </ol>
                                     </nav>
                                 </div>
                                 <div class="col-md-6 col-sm-12 text-right">
                                     <div class="dropdown">
-                                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                            January 2018
+                                        <a class="btn btn-primary" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                            {{date('D(d)-M(m)-Y')}}
                                         </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#">Export List</a>
-                                            <a class="dropdown-item" href="#">Policies</a>
-                                            <a class="dropdown-item" href="#">View Assets</a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -611,8 +603,11 @@
                             <div class="clearfix">
                                 <h4 class="text-blue h4">@lang('app.add employee')</h4>
                             </div>
+
                             <div class="wizard-content">
+
                                 <form id="form" class="tab-wizard wizard-circle wizard" method="post" action="{{route('store_employee')}}" enctype="multipart/form-data">
+
                                     @csrf
                                     <h5 >@lang('app.personal information')
 
@@ -808,14 +803,14 @@
                                             <div class="col-md-6">
                                                 <div class="form-group @error('time_of_attendees') has-danger @enderror">
                                                     <label>@lang('app.time of attendance')</label>
-                                                    <input type="text" name="time_of_attendees" id="time_of_attendees" value="{{old('time_of_attendees')}}" class="form-control  time-picker @error('time_of_attendees') form-control-danger @enderror" onclick="RemoveError('time_of_attendees')" >
+                                                    <input type="text"  class="form-control time-picker-default td-input @error('time_of_attendees') form-control-danger @enderror" onclick="RemoveError('time_of_attendees')"  >
                                                     @error('time_of_attendees')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group @error('time_of_going') has-danger @enderror">
                                                     <label>@lang('app.time of going')</label>
-                                                    <input type="text" name="time_of_going" id="time_of_going" value="{{old('time_of_going')}}" class="form-control  time-picker @error('time_of_going') form-control-danger @enderror" onclick="RemoveError('time_of_going')" >
+                                                    <input type="text" name="time_of_going" id="time_of_going" value="{{old('time_of_going')}}" class="form-control time-picker-default td-input  @error('time_of_going') form-control-danger @enderror" onclick="RemoveError('time_of_going')"  readonly="">
                                                     @error('time_of_going')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
@@ -832,7 +827,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group @error('fixed_salary')  has-danger @enderror">
                                                     <label>@lang('app.fixed_salary') ($)</label>
-                                                    <input type="text" name="fixed_salary" id="fixed_salary" value="{{old('fixed_salary')}}" class="form-control  time-picker @error('fixed_salary') form-control-danger @enderror" onclick="RemoveError('fixed_salary')" >
+                                                    <input type="text" name="fixed_salary" id="fixed_salary" value="{{old('fixed_salary')}}" class="form-control   @error('fixed_salary') form-control-danger @enderror" onclick="RemoveError('fixed_salary')" >
                                                     @error('fixed_salary')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
@@ -840,7 +835,11 @@
 
                                     </section>
                                     <!-- Step 3-->
-                                    <h5>@lang('app.qualification')</h5>
+                                    <h5> @lang('app.qualification')
+                                        @if($errors->has('education_status_id') or $errors->has('degree_id')or $errors->has('level_experience_id') or $errors->has('experience_description') )
+                                            <i class="fa fa-warning text-danger d-block" ></i>
+                                        @endif
+                                    </h5>
                                     <section>
 
                                         <div class="row">
@@ -862,6 +861,43 @@
                                             </div>
                                         </div>
 
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group @error('degree_id')has-danger @enderror ">
+                                                    <label>@lang('app.degree') <i class="fa fa-refresh" id="degree_id_refresh"></i></label>
+                                                    <select name="degree_id" id="degree_id" class="custom-select form-control @error('degree_id')form-control-danger @enderror" onclick="RemoveError('degree_id')" >
+                                                        {{------ by ajax ------}}
+                                                    </select>
+                                                    @error('degree_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>@lang('app.create degree')</label>
+                                                    <a href="#" class="btn btn-primary  btn-block">@lang('app.create degree')</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group @error('level_experience_id')has-danger @enderror ">
+                                                    <label>@lang('app.level experience') <i class="fa fa-refresh" id="level_experience_id_refresh"></i></label>
+                                                    <select name="level_experience_id" id="level_experience_id" class="custom-select form-control @error('level_experience_id')form-control-danger @enderror" onclick="RemoveError('level_experience_id')" >
+                                                        {{------ by ajax ------}}
+                                                    </select>
+                                                    @error('level_experience_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>@lang('app.create level experience')</label>
+                                                    <a href="#" class="btn btn-primary  btn-block">@lang('app.create level experience')</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                         <div class="row">
                                             <div class="col-md-12">
@@ -873,31 +909,98 @@
                                             </div>
                                         </div>
                                     </section>
+
+
                                     <!-- Step 4-->
-                                    <h5>user</h5>
+                                    <h5> @lang('app.address')
+                                        @if($errors->has('country_id') or $errors->has('city_id') or $errors->has('address_desc_en')  or $errors->has('address_desc_ar')  or $errors->has('address_desc_fr') )
+                                            <i class="fa fa-warning text-danger d-block" ></i>
+                                        @endif
+                                    </h5>
                                     <section>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Job Title :</label>
-                                                    <input type="text" class="form-control">
+                                                <div class="form-group @error('country_id') has-danger @enderror">
+                                                    <label>@lang('countries')</label>
+                                                    <select name="country_id" id="country_id" onchange="GetCities(this.value)" class="custom-select form-control @error('country_id') form-control-danger @enderror">
+                                                        @foreach($countries as $country)
+                                                            <option value="{{$country->id}}">{{ $country->{'name_'.app()->getLocale()} }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Company Name :</label>
-                                                    <input type="text" class="form-control">
+                                                <div class="form-group @error('city_id') has-danger @enderror">
+                                                    <label>@lang('cities')</label>
+                                                    <select name="city_id" id="city_id"   class="custom-select form-control @error('city_id') form-control-danger @enderror">
+
+                                                    </select>
+                                                    @error('city_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group @error('address_desc_en')has-danger @enderror ">
+                                                    <label>@lang('app.address_desc_en')</label>
+                                                    <textarea  name="address_desc_en" id="address_desc_en" class="form-control  @error('address_desc_en')form-control-danger @enderror" value="{{old('address_desc_en')}}" onclick="RemoveError('address_desc_en')" ></textarea>
+                                                    @error('address_desc_en')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Job Description :</label>
-                                                    <textarea class="form-control"></textarea>
+                                                <div class="form-group @error('address_desc_ar')has-danger @enderror ">
+                                                    <label>@lang('app.address_desc_ar')</label>
+                                                    <textarea  name="address_desc_ar" id="address_desc_ar" class="form-control  @error('address_desc_ar')form-control-danger @enderror" value="{{old('address_desc_ar')}}" onclick="RemoveError('address_desc_ar')" ></textarea>
+                                                    @error('address_desc_ar')<div class="form-control-feedback">{{ $message }}</div>@enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group @error('address_desc_fr')has-danger @enderror ">
+                                                    <label>@lang('app.address_desc_fr')</label>
+                                                    <textarea  name="address_desc_fr" id="address_desc_fr" class="form-control  @error('address_desc_fr')form-control-danger @enderror" value="{{old('address_desc_fr')}}" onclick="RemoveError('address_desc_fr')" ></textarea>
+                                                    @error('address_desc_fr')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
                                         </div>
                                     </section>
 
+
+                                    <!-- Step 4-->
+                                    <h5> @lang('app.user')
+                                        @if($errors->has('username') or $errors->has('password') or $errors->has('premisess.*') )
+                                        <i class="fa fa-warning text-danger d-block" ></i>
+                                        @endif
+                                    </h5>
+                                    <section>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group @error('username') has-danger @enderror">
+                                                    <label>@lang('app.username') <i id="usergenerate" class="fa fa-refresh"></i> </label>
+                                                    <input type="text" name="username" id="username" value="{{old('username')}}" class="form-control  @error('username') form-control-danger @enderror" onclick="RemoveError('username')" >
+                                                    @error('username')<div class="form-control-feedback">{{ $message }}</div>@enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group @error('password') has-danger @enderror">
+                                                    <label>@lang('app.password') </label>
+                                                    <input type="password" name="password" id="password" value="{{old('password')}}" class="form-control  @error('password') form-control-danger @enderror" onclick="RemoveError('password')" >
+                                                    @error('password')<div class="form-control-feedback">{{ $message }}</div>@enderror
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            @foreach($premisess as $premises)
+                                            <div class="col-md-4">
+                                                <div class="custom-control custom-checkbox mb-5">
+                                                    <input type="checkbox" value="{{$premises->id}}" name="premisess[]" @if(is_array(old('premisess')) && in_array($premises->id,old('premisess'))) checked @endif  id="customCheck{{$premises->id}}" class="custom-control-input" >
+                                                    <label class="custom-control-label" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ $premises->{'description_'.app()->getLocale()} }}" aria-describedby="tooltip329944" for="customCheck{{$premises->id}}">{{$premises->nik_name}}</label>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+
+
+                                    </section>
 
                                 </form>
                             </div>
@@ -943,128 +1046,228 @@
     <script src="{{asset('them/src/plugins/datatables/js/pdfmake.min.js')}}"></script>
     <script src="{{asset('them/src/plugins/datatables/js/vfs_fonts.js')}}"></script>
     <!-- Datatable Setting js -->
-    <script src="{{asset('them/vendors/scripts/datatable-setting.js')}}"></script></body>
+    <script src="{{asset('them/vendors/scripts/datatable-setting.js')}}"></script>
 
     {{------- wizerd step ----------------}}
-
     <script src="{{asset('them/src/plugins/jquery-steps/jquery.steps.js')}}"></script>
-    {{----------function to remove error on click--------------}}
-    <script>
-        function RemoveError(name){
-            var input = document.getElementById(name);
-            var parent = input.parentNode;
 
-            parent.classList.remove('has-danger');
-            input.classList.remove('form-control-danger');
-            if(parent.children[2]){parent.children[2].remove();}
-
-        }
-    </script>
-
-    <script>
-        $(".tab-wizard").steps({
-            headerTag: "h5",
-            bodyTag: "section",
-            transitionEffect: "fade",
-            titleTemplate: '<span class="step">#index#</span> #title#',
-            labels: {
-                finish: "Submit"
-            },
-            onStepChanged: function (event, currentIndex, priorIndex) {
-                $('.steps .current').prevAll().addClass('disabled');
-            },
-            /*onFinished: function (event, currentIndex) {
-                $('#success-modal').modal('show');
-            }*/
-
-            onFinished: function (event, currentIndex) {
-                $("#form")[0].submit();
-                //alert('dfdfs');
-            }
-
-        });
+    <!-- switchery js -->
+    <script src="{{asset('them/src/plugins/switchery/switchery.min.js')}}"></script>
+    <!-- bootstrap-tagsinput js -->
+    <script src="{{asset('them/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+    <!-- bootstrap-touchspin js -->
+    <script src="{{asset('them/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+    <script src="{{asset('them/vendors/scripts/advanced-components.js')}}"></script>
 
 
-    </script>
 
-    <script>
-        //ajax jquery
+     <script>
+         function RemoveError(name){
+             var input = document.getElementById(name);
+             var parent = input.parentNode;
 
-        function JopGet(){
-            document.getElementById('jop_id').textContent = '';
-            $.get("{{url('jops')}}",function (one,two){
-                //console.log(JSON.parse(one.trim()));
-                var jops = JSON.parse(one.trim());
-                var select = document.getElementById('jop_id');
+             parent.classList.remove('has-danger');
+             input.classList.remove('form-control-danger');
+             if(parent.children[2]){parent.children[2].remove();}
 
-                for(var i = 0 ; i< jops.length ; i++){
-                    var option   =document.createElement('option');
-                    option.value =jops[i]['id'];
-                    option.text  =jops[i]['name_'+"{{app()->getLocale()}}"];
-                    select.appendChild(option);
-                }
-            });
-        }
+         }
+     </script>
 
-        $('#jop_id_refresh').click(function (){ JopGet(); });
+     <script>
+         $(".tab-wizard").steps({
+             headerTag: "h5",
+             bodyTag: "section",
+             transitionEffect: "fade",
+             titleTemplate: '<span class="step">#index#</span> #title#',
+             labels: {
+                 finish: "Submit"
+             },
+             onStepChanged: function (event, currentIndex, priorIndex) {
+                 $('.steps .current').prevAll().addClass('disabled');
+             },
+             /*onFinished: function (event, currentIndex) {
+                 $('#success-modal').modal('show');
+             }*/
 
-        //First Execute that function
-        JopGet();
+             onFinished: function (event, currentIndex) {
+                 $("#form")[0].submit();
+                 //alert('dfdfs');
+             }
 
-    </script>
-    <script>
-        //ajax jquery
+         });
 
-        function TypeOfWorkGet(){
-            document.getElementById('type_id').textContent = '';
-            $.get("{{url('type_of_works')}}",function (one,two){
-                //console.log(JSON.parse(one.trim()));
-                var types = JSON.parse(one.trim());
-                var select = document.getElementById('type_id');
 
-                for(var i = 0 ; i< types.length ; i++){
-                    var option   =document.createElement('option');
-                    option.value =types[i]['id'];
-                    option.text  =types[i]['work_type_'+"{{app()->getLocale()}}"];
-                    select.appendChild(option);
-                }
-            });
-        }
+     </script>
 
-        $('#type_id_refresh').click(function (){ TypeOfWorkGet(); });
+     <script>
+         //ajax jquery
 
-        //First Execute that function
-        TypeOfWorkGet();
+         function JopGet(){
+             document.getElementById('jop_id').textContent = '';
+             $.get("{{url('jops')}}",function (one,two){
+                 //console.log(JSON.parse(one.trim()));
+                 var jops = JSON.parse(one.trim());
+                 var select = document.getElementById('jop_id');
 
-    </script>
+                 for(var i = 0 ; i< jops.length ; i++){
+                     var option   =document.createElement('option');
+                     option.value =jops[i]['id'];
+                     option.text  =jops[i]['name_'+"{{app()->getLocale()}}"];
+                     select.appendChild(option);
+                 }
+             });
+         }
 
-    <script>
-        //ajax jquery
+         $('#jop_id_refresh').click(function (){ JopGet(); });
 
-        function EducationStatusGet(){
-            document.getElementById('education_status_id').textContent = '';
-            $.get("{{url('education_status')}}",function (one,two){
-                //console.log(JSON.parse(one.trim()));
-                var education = JSON.parse(one.trim());
-                var select = document.getElementById('education_status_id');
+         //First Execute that function
+         JopGet();
 
-                for(var i = 0 ; i< education.length ; i++){
-                    var option   =document.createElement('option');
-                    option.value =education[i]['id'];
-                    option.text  =education[i]['education_status_'+"{{app()->getLocale()}}"];
-                    select.appendChild(option);
-                }
-            });
-        }
+     </script>
+     <script>
+         //ajax jquery
 
-        $('#education_status_id_refresh').click(function (){ EducationStatusGet(); });
+         function TypeOfWorkGet(){
+             document.getElementById('type_id').textContent = '';
+             $.get("{{url('type_of_works')}}",function (one,two){
+                 //console.log(JSON.parse(one.trim()));
+                 var types = JSON.parse(one.trim());
+                 var select = document.getElementById('type_id');
 
-        //First Execute that function
-        EducationStatusGet();
+                 for(var i = 0 ; i< types.length ; i++){
+                     var option   =document.createElement('option');
+                     option.value =types[i]['id'];
+                     option.text  =types[i]['work_type_'+"{{app()->getLocale()}}"];
+                     select.appendChild(option);
+                 }
+             });
+         }
 
-    </script>
+         $('#type_id_refresh').click(function (){ TypeOfWorkGet(); });
 
-@endsection
+         //First Execute that function
+         TypeOfWorkGet();
+
+     </script>
+
+     <script>
+         //ajax jquery
+
+         function EducationStatusGet(){
+             document.getElementById('education_status_id').textContent = '';
+             $.get("{{url('education_status')}}",function (one,two){
+                 //console.log(JSON.parse(one.trim()));
+                 var education = JSON.parse(one.trim());
+                 var select = document.getElementById('education_status_id');
+
+                 for(var i = 0 ; i< education.length ; i++){
+                     var option   =document.createElement('option');
+                     option.value =education[i]['id'];
+                     option.text  =education[i]['education_status_'+"{{app()->getLocale()}}"];
+                     select.appendChild(option);
+                 }
+             });
+         }
+
+         $('#education_status_id_refresh').click(function (){ EducationStatusGet(); });
+
+         //First Execute that function
+         EducationStatusGet();
+
+     </script>
+
+     <script>
+         //ajax jquery
+
+         function DegreeGet(){
+             document.getElementById('degree_id').textContent = '';
+             $.get("{{url('degrees')}}",function (one,two){
+                 //console.log(JSON.parse(one.trim()));
+                 var degrees = JSON.parse(one.trim());
+                 var select = document.getElementById('degree_id');
+
+                 for(var i = 0 ; i< degrees.length ; i++){
+                     var option   =document.createElement('option');
+                     option.value =degrees[i]['id'];
+                     option.text  =degrees[i]['degree_'+"{{app()->getLocale()}}"];
+                     select.appendChild(option);
+                 }
+             });
+         }
+
+         $('#degree_id_refresh').click(function (){ DegreeGet(); });
+
+         //First Execute that function
+         DegreeGet();
+
+     </script>
+
+     <script>
+         //ajax jquery
+
+         function LevelExperienceGet(){
+             document.getElementById('level_experience_id').textContent = '';
+             $.get("{{url('experience')}}",function (one,two){
+                 //console.log(JSON.parse(one.trim()));
+                 var expeiences = JSON.parse(one.trim());
+                 var select = document.getElementById('level_experience_id');
+
+                 for(var i = 0 ; i< expeiences.length ; i++){
+                     var option   =document.createElement('option');
+                     option.value =expeiences[i]['id'];
+                     option.text  =expeiences[i]['level_experience_'+"{{app()->getLocale()}}"];
+                     select.appendChild(option);
+                 }
+             });
+         }
+
+         $('#level_experience_id_refresh').click(function (){ LevelExperienceGet(); });
+
+         //First Execute that function
+         LevelExperienceGet();
+
+     </script>
+
+     <script>// script of address for mwizard step
+
+         //ajax jquery
+
+         function GetCities(country_id){
+             document.getElementById('city_id').textContent = '';
+
+             $.get("{{url('cities')}}" + "/" + country_id,function (one,two){
+                 //console.log(JSON.parse(one.trim()));
+                 var cities = JSON.parse(one.trim());
+                 var select = document.getElementById('city_id');
+
+                 for(var i = 0 ; i< cities.length ; i++){
+                     var option   =document.createElement('option');
+                     option.value =cities[i]['id'];
+                     option.text  =cities[i]['name_'+"{{app()->getLocale()}}"];
+                     select.appendChild(option);
+                 }
+             });
+         }
+
+     </script>
+
+     <script>// script user form wizard step
+
+         function GenerateUsername(){
+             $.get("{{url('generate-username')}}",function (one){
+                 //console.log(one.trim());
+                 document.getElementById('username').value = one.trim();
+             });
+         }
+
+         $('#usergenerate').click(function (){
+             GenerateUsername();
+         });
+
+
+     </script>
+
+ @endsection
 
 
 

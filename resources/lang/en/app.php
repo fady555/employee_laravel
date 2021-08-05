@@ -90,6 +90,13 @@ return [
     'create type work'=>'Create Type Work:',
     'qualification'=>'Qualification',
     'create education status'=>'Create Education Status',
+    'create degree'=>'Create Degree',
+    'create level experience'=>'Create Level Experience',
+    'address_desc_en'=>'Address Description English',
+    'address_desc_ar'=>'Address Description Arabic',
+    'address_desc_fr'=>'Address Description France',
+    'countries'=>'Countries',
+    'cities'=>'Cities',
 
 
 
