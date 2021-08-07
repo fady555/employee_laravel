@@ -20,7 +20,7 @@ class CreateContractsTable extends Migration
             $table->unsignedBigInteger('type_id');
             $table->foreign('type_id')->references('id')->on('type_of_works')->onUpdate('cascade')->onDelete('cascade');
             //=====================================================
-            $table->text('contract_file');
+            $table->text('contract_file')->nullable();
             $table->timestamps();
         });
 

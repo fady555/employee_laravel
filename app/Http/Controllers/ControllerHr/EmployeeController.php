@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\ControllerHr;
 
+use App\Address;
+use App\AllTypeSalary;
+use App\Contract;
 use App\Country;
 use App\Employee;
 use App\Http\Controllers\Controller;
@@ -9,7 +12,9 @@ use App\Jop;
 use App\Premisese;
 use App\Rules\Arabic;
 use App\Rules\Phone;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class EmployeeController extends Controller
@@ -63,20 +68,20 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
-        //return $request->all();
 
-        //personal information
+
+
         $rules=[
-            // THE FIREST ONE SECTION
+            // THE FIREST ONE SECTION //personal information
             'full_name_en'=>['required','string','max:255'],
             'full_name_ar'=>['required','string',new Arabic(),'max:255'],
             'full_name_fr'=>['required','string','max:255'],
             'age'=>['required','numeric','max:100'],
             'email'=>['required','email','unique:employees,email'],
-            'phone'=>['required',new Phone,'numeric','size:11'],
-            'personal_identity_id'=>['required','numeric','size:14'],
-            'personal_identity_img'=>['file','size:<=500'],
-            'avatar'=>['file','size:<=500','mimes:jpeg,jpg,png'],
+            'phone'=>['required',new Phone,'regex:/^([0-9\s\-\+\(\)]*)$/'],
+            'personal_identity_id'=>['required','digits_between:1,14'],
+            'personal_identity_img'=>['file',],
+            'avatar'=>['file','mimes:jpeg,jpg,png'],
             'name_of_bank'=>['max:255'],
             'number_of_account'=>['nullable','numeric'],
             'number_of_wif_husband'=>['nullable','numeric'],
@@ -87,13 +92,13 @@ class EmployeeController extends Controller
             'data_of_start_work'=>['required','string'],
             'time_of_attendees'=>['required','string'],
             'time_of_going'=>['required','string'],
-            'contract'=>['size:500'],
+            'contract'=>[],
             'fixed_salary'=>['numeric'],
             // THE THIREd three SECTION qalification
             'education_status_id'=>['required','exists:education_statuses,id'],
             'degree_id'=>['required','exists:degrees,id'],
             'level_experience_id'=>['required','exists:level_experiences,id'],
-            'experience_description'=>['required','exists:employees,education_statuses'],
+            'experience_description'=>['required'],
             // THE THIREd for  SECTION Address
             'country_id'=>['required','numeric','exists:countries,id'],
             'city_id'=>['nullable','numeric','exists:cities,id'],
@@ -102,16 +107,135 @@ class EmployeeController extends Controller
             'address_desc_fr'=>['string'],
             // THE five  SECTION user
             'username'=>['required','unique:users,username'],
-            'password'=>['required','size:8'],
-            'premisess.*'=>['required','exists:premisess,id','array'],
-
-
-
+            'password'=>['required','digits_between:8,255'],
+            'premisess'=>['array'],
+            'premisess.*'=>['required','exists:premisess,id'],
 
         ];
 
 
-         $request->validate($rules);
+
+
+
+        $request->validate($rules);
+
+
+
+        //create address and return id
+
+        $address_table_id = Address::insertGetId([
+            'country_id'=>$request->country_id,
+            'city_id'=>$request->city_id,
+            'address_desc_en'=>$request->address_desc_en,
+            'address_desc_ar'=>$request->address_desc_ar,
+            'address_desc_fr'=>$request->address_desc_fr,
+        ]);
+
+        $contract_table_id = Contract::insertGetId([
+            'type_id'=>$request->type_id,
+            //'contract_file'=> $request->file('contract_file')->store('public/contract'),
+        ]);
+
+        $salary_table_id = AllTypeSalary::insertGetId([
+            'fixed_salary'=>$request->fixed_salary,
+        ]);
+
+
+
+
+
+
+
+        //create employee and return id
+
+        $emp = [
+            'full_name_en'=>$request->full_name_en,
+            'full_name_ar'=>$request->full_name_ar,
+            'full_name_fr'=>$request->full_name_fr,
+            'age'=>$request->age,
+            'email'=>$request->email,
+            'phone'=>'010555558585',
+            #'phone'=>$request->phone,
+            'personal_identity_id'=>$request->personal_identity_id,
+
+            //'personal_identity_img'=>$request->file('personal_identity_img')->store('public/personal_identity_img'),
+           // 'avatar'=>$request->file('avatar')->store('public/avatar_employee'),
+
+            'name_of_bank'=>$request->name_of_bank,
+            'number_of_account'=>$request->number_of_account,
+            'number_of_wif_husband'=>$request->number_of_wif_husband,
+            'number_of_wif_children'=>$request->number_of_wif_children,
+            'jop_id'=>$request->jop_id,
+            'data_of_start_work'=>date( "Y-m-d", strtotime($request->data_of_start_work)),
+            'time_of_attendees'=>date('h:m',strtotime($request->time_of_attendees)),
+            'time_of_going'=>date('h:m',strtotime($request->time_of_going)),
+
+            'contract_id'=>$contract_table_id,
+
+            'salary_id'=>$salary_table_id,
+
+            'education_status_id'=>$request->education_status_id,
+            'degree_id'=>$request->degree_id,
+            'level_experience_id'=>$request->level_experience_id,
+            'experience_description'=>$request->experience_description,
+            'address_id'=>$address_table_id,
+            'number_of_day_vacancy_taken'=>0,
+        ];
+
+        $employee_tabel_id =Employee::insertGetId($emp);
+
+        //create user
+
+        $userId = User::insertGetId([
+            'username'=>$request->username,
+            'employee_id'=>$employee_tabel_id,
+            'password'=>Hash::make($request->password),
+            'premisses'=>json_encode($request->premisess),
+        ]);
+
+        //return $user;
+
+        if($userId){
+
+            $contract = Contract::find($contract_table_id);
+            if($request->file('contract_file') == null){
+                $file_contract="";
+            }else{
+                $file_contract = $request->file('contract_file')->store('public/contract');
+            }
+
+            $contract->updated([
+            'contract_file'=> $file_contract,
+            ]);
+
+            //=================================================
+
+            $employee = Employee::find($employee_tabel_id);
+
+            if($request->file('personal_identity_img') == null){ $file_personal_img = ""; }else{ $file_personal_img = $request->file('personal_identity_img')->store('public/personal_identity_img');}
+            if($request->file('avatar') == null){ $file_avatar = ""; }else{ $file_avatar = $request->file('avatar')->store('public/avatar_employee');}
+
+            $employee->updated([
+                'personal_identity_img'=>$file_personal_img,
+                'avatar'=>$file_avatar,
+            ]);
+
+            //return $userId;
+
+            $employeeToUseMessage = Employee::find($employee_tabel_id);
+
+
+            if(app()->getLocale() == "ar"){
+                session()->flash('add-user',$employeeToUseMessage->full_name_ar.trans('user add success'));
+            }else{
+                session()->flash('add-user',trans('user add success').$employeeToUseMessage->{ 'full_name_'.app()->getLocale() });
+            }
+
+            return redirect()->back();
+
+        }
+
+
 
 
 

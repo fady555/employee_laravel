@@ -94,6 +94,13 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+
+                <form method="post" action="{{url('file')}}" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="fileUp">
+                    <input type="submit" value="dffsdfsdfsdfsfs">
+                </form>
+
             </div>
         </div>
     </body>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Address;
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -127,6 +127,40 @@ Route::group($group,function (){
 
 
 
+Route::post('file',function (Request $request){
+
+
+    return $request->file('fileUp')->store('public/sss');
+
+
+});
+
+Route::get('time',function (Request $request){
+
+
+    echo date( "Y-m-d", strtotime( "04 August 2021" ) );
+
+
+});
+
+
+Route::get('mm',function (Request $request){
+
+
+    //return \App\Employee::find(1)->{'full_name_'.app()->getLocale()} ;
+    //return session()->all() ;
+
+
+    //session()->flash('cc','dfdfdfdfdf');
+
+    if (session()->has('cc')){
+        echo "dsfsdfsdfsdfsccccccc";
+    }
+
+
+
+
+});
 
 
 

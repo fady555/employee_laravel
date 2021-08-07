@@ -20,14 +20,14 @@ class CreateEmployeesTable extends Migration
             $table->string('full_name_en');
             $table->string('full_name_fr');
             $table->integer('age');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->date('data_of_start_work');
             $table->string('personal_identity_id');
-            $table->string('personal_identity_img');
+            $table->string('personal_identity_img')->nullable();
             $table->integer('number_of_day_vacancy')->default(21);
             $table->integer('number_of_day_vacancy_taken');
             $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->string('name_of_bank')->nullable();
             $table->string('number_of_account')->nullable();
             $table->tinyInteger('number_of_wif_husband')->nullable();

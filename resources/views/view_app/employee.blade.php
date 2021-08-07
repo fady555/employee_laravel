@@ -18,6 +18,7 @@
     {{---------------bootstrap-touchspin css---------------------------------}}
     <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('them/vendors/styles/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/sweetalert2/sweetalert2.css')}}">
 @endsection
 
 
@@ -573,6 +574,7 @@
         @endsection
 
         @section('main-container')
+
             <div class="main-container">
                 <div class="pd-ltr-20 xs-pd-20-10">
                     <div class="min-height-200px">
@@ -743,7 +745,7 @@
                                     <h5> @lang('app.jop')
                                     @if($errors->has('jop_id') or $errors->has('type_id')
                                         or $errors->has('data_of_start_work') or $errors->has('time_of_attendees')
-                                        or $errors->has('time_of_going') or $errors->has('contract')
+                                        or $errors->has('time_of_going') or $errors->has('contract_file')
                                         or $errors->has('fixed_salary')
                                         )
                                         <i class="fa fa-warning text-danger d-block" ></i>
@@ -803,7 +805,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group @error('time_of_attendees') has-danger @enderror">
                                                     <label>@lang('app.time of attendance')</label>
-                                                    <input type="text"  class="form-control time-picker-default td-input @error('time_of_attendees') form-control-danger @enderror" onclick="RemoveError('time_of_attendees')"  >
+                                                    <input type="text" name="time_of_attendees" id="time_of_attendees"  class="form-control time-picker-default td-input @error('time_of_attendees') form-control-danger @enderror" onclick="RemoveError('time_of_attendees')"  >
                                                     @error('time_of_attendees')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
@@ -818,10 +820,10 @@
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <div class="form-group @error('contract') has-danger @enderror">
+                                                <div class="form-group @error('contract_file') has-danger @enderror">
                                                     <label>@lang('app.contract')</label>
-                                                    <input type="file" name="contract" id="contract"  class="form-control  file-upload @error('contract') form-control-danger @enderror" onclick="RemoveError('contract')" >
-                                                    @error('contract')<div class="form-control-feedback">{{ $message }}</div>@enderror
+                                                    <input type="file" name="contract_file" id="contract_file"  class="form-control  file-upload @error('contract_file') form-control-danger @enderror" onclick="RemoveError('contract_file')" >
+                                                    @error('contract_file')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -903,7 +905,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group @error('experience_description')has-danger @enderror ">
                                                     <label>@lang('app.experience description')</label>
-                                                    <textarea  name="experience_description" id="experience_description" class="form-control  @error('experience_description')form-control-danger @enderror" value="{{old('experience_description')}}" onclick="RemoveError('experience_description')" ></textarea>
+                                                    <textarea  name="experience_description" id="experience_description" class="form-control  @error('experience_description')form-control-danger @enderror" value="{{old('experience_description')}}" onclick="RemoveError('experience_description')" >{{old('experience_description')}}</textarea>
                                                     @error('experience_description')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
@@ -942,21 +944,21 @@
                                             <div class="col-md-12">
                                                 <div class="form-group @error('address_desc_en')has-danger @enderror ">
                                                     <label>@lang('app.address_desc_en')</label>
-                                                    <textarea  name="address_desc_en" id="address_desc_en" class="form-control  @error('address_desc_en')form-control-danger @enderror" value="{{old('address_desc_en')}}" onclick="RemoveError('address_desc_en')" ></textarea>
+                                                    <textarea  name="address_desc_en" id="address_desc_en" class="form-control  @error('address_desc_en')form-control-danger @enderror" value="{{old('address_desc_en')}}" onclick="RemoveError('address_desc_en')" >{{old('address_desc_en')}}</textarea>
                                                     @error('address_desc_en')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group @error('address_desc_ar')has-danger @enderror ">
                                                     <label>@lang('app.address_desc_ar')</label>
-                                                    <textarea  name="address_desc_ar" id="address_desc_ar" class="form-control  @error('address_desc_ar')form-control-danger @enderror" value="{{old('address_desc_ar')}}" onclick="RemoveError('address_desc_ar')" ></textarea>
+                                                    <textarea  name="address_desc_ar" id="address_desc_ar" class="form-control  @error('address_desc_ar')form-control-danger @enderror" value="{{old('address_desc_ar')}}" onclick="RemoveError('address_desc_ar')" >{{old('address_desc_ar')}}</textarea>
                                                     @error('address_desc_ar')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group @error('address_desc_fr')has-danger @enderror ">
                                                     <label>@lang('app.address_desc_fr')</label>
-                                                    <textarea  name="address_desc_fr" id="address_desc_fr" class="form-control  @error('address_desc_fr')form-control-danger @enderror" value="{{old('address_desc_fr')}}" onclick="RemoveError('address_desc_fr')" ></textarea>
+                                                    <textarea  name="address_desc_fr" id="address_desc_fr" class="form-control  @error('address_desc_fr')form-control-danger @enderror" value="{{old('address_desc_fr')}}" onclick="RemoveError('address_desc_fr')" >{{old('address_desc_fr')}}</textarea>
                                                     @error('address_desc_fr')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                                 </div>
                                             </div>
@@ -966,7 +968,7 @@
 
                                     <!-- Step 4-->
                                     <h5> @lang('app.user')
-                                        @if($errors->has('username') or $errors->has('password') or $errors->has('premisess.*') )
+                                        @if($errors->has('username') or $errors->has('password') or $errors->has('premisess')or $errors->has('premisess.*') )
                                         <i class="fa fa-warning text-danger d-block" ></i>
                                         @endif
                                     </h5>
@@ -1058,6 +1060,27 @@
     <!-- bootstrap-touchspin js -->
     <script src="{{asset('them/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
     <script src="{{asset('them/vendors/scripts/advanced-components.js')}}"></script>
+
+    <script src="{{asset('them/src/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+
+
+    @if(session()->has('add_employee'))
+
+        <script>
+            swal(
+                {
+                    title: '{{session()->get('add_employee')}}!',
+                    text: 'You clicked the button!',
+                    type: 'success',
+                    showCancelButton: false,
+                    confirmButtonClass: 'btn btn-success',
+                    cancelButtonClass: 'btn btn-danger'
+                }
+            )
+        </script>
+
+    @endif
+
 
 
 
@@ -1266,6 +1289,11 @@
 
 
      </script>
+
+
+
+
+
 
  @endsection
 

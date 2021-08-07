@@ -98,6 +98,9 @@ return [
     'countries'=>'Countries',
     'cities'=>'Cities',
 
+    'user add success'=>'complete add a new employee by name ',
+    'user add success'=>'تم اضافه مستخدم جديد باسم',
+
 
 
 
