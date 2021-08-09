@@ -24,8 +24,9 @@ class CreateAddressesTable extends Migration
             $table->unsignedInteger('country_id');
             $table->foreign('country_id')->references('id')->on('countries')->onUpdate('cascade')->onDelete('cascade');
             //============================================================
-            $table->unsignedInteger('city_id');
+            $table->unsignedInteger('city_id')->nullable();
             $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
+
             //============================================================
 
 

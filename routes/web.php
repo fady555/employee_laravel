@@ -147,16 +147,10 @@ Route::get('time',function (Request $request){
 Route::get('mm',function (Request $request){
 
 
-    //return \App\Employee::find(1)->{'full_name_'.app()->getLocale()} ;
-    //return session()->all() ;
 
-
-    //session()->flash('cc','dfdfdfdfdf');
-
-    if (session()->has('cc')){
-        echo "dsfsdfsdfsdfsccccccc";
+    if(file_exists('storage/personal_identity_img/ti6FmZtWjhGbHt26sbWByGwI9aCXPwqRIRX3Y9ps.jpg')){
+        unlink('storage/personal_identity_img/ti6FmZtWjhGbHt26sbWByGwI9aCXPwqRIRX3Y9ps.jpg');
     }
-
 
 
 

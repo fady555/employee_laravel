@@ -31,8 +31,8 @@ Route::group($group,function (){
     Route::get('/employee/add','EmployeeController@create')->name('add_employee');
     Route::post('/employee/store','EmployeeController@store')->name('store_employee');
 
-    Route::get('/employee/edit/{$id?}','EmployeeController@edit')->name('edit_employee');
-    Route::get('/employee/delete/{$id?}','EmployeeController@edit')->name('delete_employee');
+    Route::get('/employee/edit/{id?}','EmployeeController@edit')->name('edit_employee');
+    Route::get('/employee/delete/{id?}','EmployeeController@destroy')->name('delete_employee');
 
 });
 
@@ -54,7 +54,7 @@ Route::get('ooo',function (){
         'levelExperience',
         'contract.type_of_work',
         'user',
-    ])->where('id',1)->get();
+    ])->where('id',3)->get();
 
     return $employee;
 });

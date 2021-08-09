@@ -25,7 +25,7 @@ class EmployeeController extends Controller
     {
         $employee = Employee::with(['jop','addresses','salary'])->get();
         //dd($employee);
-        return view('view_app.employee')->with('action','show-all')->with('employees',$employee);
+        return view('view_app.employee.index')->with('employees',$employee);
     }
 
     public function show($id)
@@ -42,12 +42,28 @@ class EmployeeController extends Controller
             'user',
         ])->where('id',$id)->get();
        // return ($employee);
-        return view('view_app.employee')->with('action','show')->with('employee',$employee);
+        return view('view_app.employee.show')->with('employee',$employee);
     }
 
     public function edit($id)
     {
-        //
+        $employee = Employee::with([
+            'jop',
+            'addresses.country',
+            'addresses.city',
+            'salary',
+            'degree',
+            'education',
+            'levelExperience',
+            'contract.type_of_work',
+            'user',
+        ])->where('id',$id)->first();
+        $jops = Jop::get();
+        $countries = Country::get();
+        $premisess = Premisese::get();
+        return view('view_app.employee.edit')->with(['employee'=>$employee,'jops'=>$jops,'countries'=>$countries,'premisess'=>$premisess]);
+
+
     }
 
 
@@ -62,14 +78,12 @@ class EmployeeController extends Controller
         $jops = Jop::get();
         $countries = Country::get();
         $premisess = Premisese::get();
-        return view('view_app.employee')->with('action','add')->with(['jops'=>$jops,'countries'=>$countries,'premisess'=>$premisess]);
+        return view('view_app.employee.create')->with(['jops'=>$jops,'countries'=>$countries,'premisess'=>$premisess]);
     }
 
 
     public function store(Request $request)
     {
-
-
 
         $rules=[
             // THE FIREST ONE SECTION //personal information
@@ -80,19 +94,19 @@ class EmployeeController extends Controller
             'email'=>['required','email','unique:employees,email'],
             'phone'=>['required',new Phone,'regex:/^([0-9\s\-\+\(\)]*)$/'],
             'personal_identity_id'=>['required','digits_between:1,14'],
-            'personal_identity_img'=>['file',],
-            'avatar'=>['file','mimes:jpeg,jpg,png'],
+            'personal_identity_img'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
+            'avatar'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
             'name_of_bank'=>['max:255'],
             'number_of_account'=>['nullable','numeric'],
-            'number_of_wif_husband'=>['nullable','numeric'],
-            'number_of_wif_children'=>['nullable','numeric'],
+            'number_of_wif_husband'=>['nullable','digits_between:0,4'],
+            'number_of_wif_children'=>['nullable','digits_between:0,15'],
             // THE SECOND TWO SECTION jop
             'jop_id'=>['required','numeric','exists:jops,id'],
             'type_id'=>['required','numeric','exists:type_of_works,id'],
             'data_of_start_work'=>['required','string'],
             'time_of_attendees'=>['required','string'],
             'time_of_going'=>['required','string'],
-            'contract'=>[],
+            'contract'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
             'fixed_salary'=>['numeric'],
             // THE THIREd three SECTION qalification
             'education_status_id'=>['required','exists:education_statuses,id'],
@@ -186,12 +200,15 @@ class EmployeeController extends Controller
 
         //create user
 
-        $userId = User::insertGetId([
+        $data_user = [
             'username'=>$request->username,
             'employee_id'=>$employee_tabel_id,
             'password'=>Hash::make($request->password),
-            'premisses'=>json_encode($request->premisess),
-        ]);
+            //'premisses'=>json_encode($request->premisess),
+        ];
+        if(!empty($request->premisess)){$data_user['premisses'] = json_encode($request->premisess);}
+
+        $userId = User::insertGetId();
 
         //return $user;
 
@@ -204,9 +221,9 @@ class EmployeeController extends Controller
                 $file_contract = $request->file('contract_file')->store('public/contract');
             }
 
-            $contract->updated([
-            'contract_file'=> $file_contract,
-            ]);
+            $contract->update(array(
+            'contract_file'=>str_replace('public','storage',$file_contract),
+            ));
 
             //=================================================
 
@@ -215,10 +232,10 @@ class EmployeeController extends Controller
             if($request->file('personal_identity_img') == null){ $file_personal_img = ""; }else{ $file_personal_img = $request->file('personal_identity_img')->store('public/personal_identity_img');}
             if($request->file('avatar') == null){ $file_avatar = ""; }else{ $file_avatar = $request->file('avatar')->store('public/avatar_employee');}
 
-            $employee->updated([
-                'personal_identity_img'=>$file_personal_img,
-                'avatar'=>$file_avatar,
-            ]);
+            $employee->update(array(
+                'personal_identity_img'=>str_replace('public','storage',$file_personal_img),
+                'avatar'=>str_replace('public','storage',$file_avatar),
+        ));
 
             //return $userId;
 
@@ -226,27 +243,14 @@ class EmployeeController extends Controller
 
 
             if(app()->getLocale() == "ar"){
-                session()->flash('add-user',$employeeToUseMessage->full_name_ar.trans('user add success'));
+                session()->flash('add_employee',$employeeToUseMessage->full_name_ar." ".trans('user add success'));
             }else{
-                session()->flash('add-user',trans('user add success').$employeeToUseMessage->{ 'full_name_'.app()->getLocale() });
+                session()->flash('add_employee',trans('user add success')." ".$employeeToUseMessage->{ 'full_name_'.app()->getLocale() });
             }
 
             return redirect()->back();
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -259,6 +263,19 @@ class EmployeeController extends Controller
 
     public function destroy($id)
     {
-        //
+        /*$employee = Employee::where('id',$id)->first();
+        /*if(file_exists(public_path($employee->personal_identity_img))){unlink(public_path().$employee->personal_identity_img);}else{}
+        if(file_exists(public_path($employee->avatar))){unlink(public_path($employee->avatar));}else{}
+
+        $file_contract =Contract::where('id',$employee->contract_id)->first();
+        if(file_exists(public_path($file_contract->contract_file))){unlink(public_path($file_contract->contract_file));}
+
+
+
+        $employee->addresses()->delete();
+        $employee->salary()->delete();
+        $employee->contract()->delete();
+
+        $employee->delete();*/
     }
 }

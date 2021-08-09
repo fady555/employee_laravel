@@ -102,6 +102,10 @@ return [
     'user add success'=>'تم اضافه مستخدم جديد باسم',
 
 
+    //edit employee
+
+    'edit employee' => 'Edit Employee',
+
 
 
 

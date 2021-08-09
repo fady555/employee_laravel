@@ -27,6 +27,8 @@ class Employee extends Model
         'time_of_attendees',
         'time_of_going',
         'experience_description',
+        'created_at',
+        'updated_at',
             'address_id',
             'jop_id',
             'degree_id',

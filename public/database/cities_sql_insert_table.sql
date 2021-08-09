@@ -866,6 +866,7 @@ INSERT INTO `cities` (`id`, `name_en`, `name_ar`, `name_fr`, `code`, `country_id
 (998, 'Pohnpei', 'بوهنباي', 'Pohnpei', '02', 67),
 (999, 'Chuuk', 'شوك', 'Chuuk', '03', 67),
 (1000, 'Kosrae', 'كوسراي', 'Kosrae', '01', 67),
+
 (1002, 'Aquitaine', 'آكيتن', 'Aquitaine', '97', 69),
 (1003, 'Nord-Pas-de-Calais', 'نور-با-دو-كاليه', 'Nord-Pas-de-Calais', 'B4', 69),
 (1004, 'Lorraine', 'لورين', 'Lorraine', 'B2', 69),
@@ -1599,7 +1600,7 @@ INSERT INTO `cities` (`id`, `name_en`, `name_ar`, `name_fr`, `code`, `country_id
 (1777, 'Kingston', 'كينغستون', 'Kingston', '17', 101),
 (1779, 'At Tafilah', 'في الطفيلة', 'Chez tafilah', '12', 102),
 (1782, 'Al Karak', 'الكرك', 'Al Karak', '09', 102),
-(1784, 'Al Balqa\'', 'البلقاء', 'Al Balqa \'', '02', 102),
+(1784, 'Al Balqa', 'البلقاء', 'Al Balqa', '02', 102),
 (1786, 'Amman', 'عمان', 'Amman', '16', 102),
 (1787, 'Al Aqabah', 'العقبة', 'Al Aqabah', '21', 102),
 (1788, 'Okinawa', 'أوكيناوا', 'Okinawa', '47', 103),
@@ -3379,4 +3380,5 @@ INSERT INTO `cities` (`id`, `name_en`, `name_ar`, `name_fr`, `code`, `country_id
 (3884, 'Mashonaland East', 'ماشونالاند الشرقية', 'Mashonaland Est', '04', 229),
 (3885, 'Mashonaland Central', 'ماشونالاند الوسطى', 'Mashonaland Central', '03', 229),
 (3886, 'Matabeleland South', 'ماتابيليلاند الجنوبية', 'Matabeleland Sud', '07', 229),
-(3888, 'Masvingo', 'ماسفينغو', 'Masvingo', '08', 229);
+(3888, 'Masvingo', 'ماسفينغو', 'Masvingo', '08', 229),
+(3889, 'no city', 'لاتوجد قاره', 'no city', '0', 0);
