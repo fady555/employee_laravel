@@ -208,7 +208,7 @@ class EmployeeController extends Controller
         ];
         if(!empty($request->premisess)){$data_user['premisses'] = json_encode($request->premisess);}
 
-        $userId = User::insertGetId();
+        $userId = User::insertGetId($data_user);
 
         //return $user;
 
@@ -263,19 +263,25 @@ class EmployeeController extends Controller
 
     public function destroy($id)
     {
-        /*$employee = Employee::where('id',$id)->first();
-        /*if(file_exists(public_path($employee->personal_identity_img))){unlink(public_path().$employee->personal_identity_img);}else{}
-        if(file_exists(public_path($employee->avatar))){unlink(public_path($employee->avatar));}else{}
+        $employee = Employee::where('id',$id)->first();
+
+if(isset($employee)):
+
+
+        if(file_exists($employee->personal_identity_img)){unlink($employee->personal_identity_img);}else{}
+        if(file_exists($employee->avatar)){unlink($employee->avatar);}else{}
 
         $file_contract =Contract::where('id',$employee->contract_id)->first();
-        if(file_exists(public_path($file_contract->contract_file))){unlink(public_path($file_contract->contract_file));}
-
-
+        if(file_exists($file_contract->contract_file)){unlink($file_contract->contract_file);}
 
         $employee->addresses()->delete();
         $employee->salary()->delete();
         $employee->contract()->delete();
+        $employee->delete();
+        if(file_exists($file_contract->contract_file)){unlink($file_contract->contract_file);}
 
-        $employee->delete();*/
+        //return $file_contract->contract_file;
+endif;
+
     }
 }

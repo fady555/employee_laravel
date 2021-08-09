@@ -148,9 +148,7 @@ Route::get('mm',function (Request $request){
 
 
 
-    if(file_exists('storage/personal_identity_img/ti6FmZtWjhGbHt26sbWByGwI9aCXPwqRIRX3Y9ps.jpg')){
-        unlink('storage/personal_identity_img/ti6FmZtWjhGbHt26sbWByGwI9aCXPwqRIRX3Y9ps.jpg');
-    }
+    if(file_exists('storage/personal_identity_img/generalt.jpg')){unlink('storage/personal_identity_img/generalt.jpg');}
 
 
 
