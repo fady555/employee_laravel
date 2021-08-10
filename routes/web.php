@@ -68,11 +68,11 @@ Route::group($group,function (){
 
 
     #test user to check
-    Route::get('all',function (){$x = session()->all(); return $x;});
+    /*Route::get('all',function (){$x = session()->all(); return $x;});
 
     Route::get('get',function (){$x =  session()->get('user_login');return $x['id'];});
 
-    Route::get('flush',function (){ session()->flush('user_login');return "seesion deleted";});
+    Route::get('flush',function (){ session()->flush('user_login');return "seesion deleted";});*/
 
     $middleware = [
         'login',#user must be login
@@ -148,7 +148,7 @@ Route::get('mm',function (Request $request){
 
 
 
-    if(file_exists('storage/personal_identity_img/generalt.jpg')){unlink('storage/personal_identity_img/generalt.jpg');}
+    //if(file_exists('storage/personal_identity_img/generalt.jpg')){unlink('storage/personal_identity_img/generalt.jpg');}
 
 
 

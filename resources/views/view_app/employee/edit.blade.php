@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title-header')
-    @lang('app.edit employee').{{ $employee->full_name_en }}
+    @lang('app.edit employee'){{ " ".$employee->{'full_name_'.app()->getLocale()} }}
 @endsection
 
 @section('css')
@@ -35,6 +35,20 @@
                         </div>
                     </div>
                 </div>
+                @if(session()->has('edit_employee'))
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{session()->get('edit_employee')}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
 
                 <div class="pd-20 card-box mb-30">
                     <div class="clearfix">
@@ -43,7 +57,7 @@
 
                     <div class="wizard-content">
 
-                        <form id="form" class="tab-wizard wizard-circle wizard" method="post" action="{{route('store_employee')}}" enctype="multipart/form-data">
+                        <form id="form" class="tab-wizard wizard-circle wizard" method="post" action="{{route('update_employee',['id'=>$employee->id])}}" enctype="multipart/form-data">
 
                             @csrf
                             <h5 >@lang('app.personal information')
@@ -84,7 +98,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('full_name_fr')has-danger @enderror ">
                                             <label>@lang('app.full_name_fr')</label>
-                                            <input type="text" name="full_name_fr" id="full_name_fr" value="{{old('full_name_fr',$employee->full_name_fr)}}" class="form-control @error('full_name_fr')form-control-danger @enderror "  onclick="RemoveError('full_name_fr')">
+                                            <input type="text" name="full_name_fr" id="full_name_fr" value="{{old('full_name_fr',$employee->full_name_ar)}}" class="form-control @error('full_name_fr')form-control-danger @enderror "  onclick="RemoveError('full_name_fr')">
                                             @error('full_name_fr')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -115,7 +129,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group @error('personal_identity_id')has-danger @enderror ">
                                             <label>@lang('app.personal identity id')</label>
                                             <input type="text" name="personal_identity_id" id="personal_identity_id"  value="{{old('personal_identity_id',$employee->personal_identity_id)}}" class="form-control  @error('personal_identity_id')form-control-danger @enderror " onclick="RemoveError('personal_identity_id')" >
@@ -125,12 +139,9 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('personal_identity_img')has-danger @enderror ">
                                             <label >@lang('app.personal identity img')</label>
-                                            <input type="file"  name="personal_identity_img" id="personal_identity_img" value="{{old('personal_identity_img',$employee->personal_identity_img)}}" class="form-control @error('personal_identity_img')form-control-danger @enderror " onclick="RemoveError('personal_identity_img')" >
+                                            <input type="file"  name="personal_identity_img" id="personal_identity_img"  class="form-control @error('personal_identity_img')form-control-danger @enderror " onclick="RemoveError('personal_identity_img')" >
                                             @error('personal_identity_img')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 " >
-                                        <img style="display: block; max-width: 15% ; height: auto;" class="light-logo rounded" src="{{asset('/avatar_employee/vN4Y1VIzCyt3hd0CT5UvGWJgPwIjgMJ4kMz6V9QK.jpg')}}" alt="">
                                     </div>
                                 </div>
 
@@ -141,9 +152,6 @@
                                             <input type="file"  name="avatar" id="avatar"  class="form-control @error('avatar')form-control-danger @enderror " onclick="RemoveError('avatar')" >
                                             @error('avatar')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img style="display: block; max-width: 15% ; height: auto;"  src="{{asset($employee->avatar)}}" alt="">
                                     </div>
                                 </div>
 
@@ -199,8 +207,10 @@
                                             <label>@lang('app.jop') <i class="fa fa-refresh" id="jop_id_refresh"></i></label>
                                             <select name="jop_id" id="" class="custom-select form-control @error('jop_id')form-control-danger @enderror" onclick="RemoveError('jop_id')" >
                                                 {{------ by ajax ------}}
-                                                <option value="{{$employee->jop->id}}">{{ $employee->jop->{'name_'.app()->getLocale()} }}</option>
-                                                <optgroup id="jop_id"></optgroup>
+                                                <option value="{{$employee->jop_id}}">{{ \App\Jop::find($employee->jop_id)->{'name_'.app()->getLocale()} }}</option>
+                                                <optgroup id="jop_id" label="{{ \App\Jop::find($employee->jop_id)->{'name_'.app()->getLocale()} }}" data-max-options="2">
+                                                    @if(old('jop_id')) <option value="{{old('jop_id')}}">{{ \App\Jop::find(old('jop_id'))->{'name_'.app()->getLocale()} }}</option> @endif
+                                                </optgroup>
                                             </select>
                                             @error('jop_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
@@ -220,9 +230,10 @@
                                             <label>@lang('app.type of work') <i class="fa fa-refresh" id=type_id_refresh"></i></label>
                                             <select name="type_id" id="" class="custom-select form-control @error('type_id')form-control-danger @enderror" onclick="RemoveError('type_id')" >
                                                 {{------ by ajax ------}}
-                                                <option value="{{$employee->contract->type_of_work['id']}}">{{$employee->contract->type_of_work['work_type_'.app()->getLocale()]}}</option>
-                                                <optgroup id="type_id"></optgroup>
-
+                                                <option value="{{$employee->contract->type_id}}">{{ \App\TypeOfWork::find($employee->contract->type_id)->{'work_type_'.app()->getLocale()} }}</option>
+                                                <optgroup id="type_id" label="{{ \App\TypeOfWork::find($employee->contract->type_id)->{'work_type_'.app()->getLocale()} }}" data-max-options="2">
+                                                    @if(old('type_id')) <option value="{{old('type_id')}}">{{ \App\TypeOfWork::find(old('type_id'))->{'work_type_'.app()->getLocale()} }}</option> @endif
+                                                </optgroup>
                                             </select>
                                             @error('type_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
@@ -241,7 +252,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('data_of_start_work') has-danger @enderror">
                                             <label>@lang('app.start date')</label>
-                                            <input type="text" name="data_of_start_work" id="data_of_start_work" value="{{ old('data_of_start_work',date('d-M-Y',strtotime($employee->data_of_start_work))) }}" class="form-control date-picker @error('data_of_start_work') form-control-danger @enderror" onclick="RemoveError('data_of_start_work')" placeholder="Select Date">
+                                            <input type="text" name="data_of_start_work" id="data_of_start_work"  class="form-control date-picker @error('data_of_start_work') form-control-danger @enderror" onclick="RemoveError('data_of_start_work')" placeholder="Select Date">
                                             @error('data_of_start_work')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -251,7 +262,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('time_of_attendees') has-danger @enderror">
                                             <label>@lang('app.time of attendance')</label>
-                                            <input type="text"  name="time_of_attendees" id="time_of_attendees"   class="form-control time-picker-default td-input @error('time_of_attendees') form-control-danger @enderror" onclick="RemoveError('time_of_attendees')"  >
+                                            <input type="text" name="time_of_attendees" id="time_of_attendees"  class="form-control time-picker-default td-input @error('time_of_attendees') form-control-danger @enderror" onclick="RemoveError('time_of_attendees')"  >
                                             @error('time_of_attendees')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -275,7 +286,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('fixed_salary')  has-danger @enderror">
                                             <label>@lang('app.fixed_salary') ($)</label>
-                                            <input type="text" name="fixed_salary" id="fixed_salary" value="{{old('fixed_salary')}}" class="form-control   @error('fixed_salary') form-control-danger @enderror" onclick="RemoveError('fixed_salary')" >
+                                            <input type="text" name="fixed_salary" id="fixed_salary" value="{{old('fixed_salary',$employee->salary->fixed_salary)}}" class="form-control   @error('fixed_salary') form-control-danger @enderror" onclick="RemoveError('fixed_salary')" >
                                             @error('fixed_salary')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -294,8 +305,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('education_status_id')has-danger @enderror ">
                                             <label>@lang('app.education') <i class="fa fa-refresh" id="education_status_id_refresh"></i></label>
-                                            <select name="education_status_id" id="education_status_id" class="custom-select form-control @error('education_status_id')form-control-danger @enderror" onclick="RemoveError('education_status_id')" >
+                                            <select name="education_status_id" id="" class="custom-select form-control @error('education_status_id')form-control-danger @enderror" onclick="RemoveError('education_status_id')" >
                                                 {{------ by ajax ------}}
+                                                <option value="{{$employee->education_status_id}}">{{ \App\EducationStatus::find($employee->education_status_id)->{'education_status_'.app()->getLocale()} }}</option>
+                                                <optgroup id="education_status_id" label="{{ \App\EducationStatus::find($employee->education_status_id)->{'education_status_'.app()->getLocale()} }}" data-max-options="2">
+                                                    @if(old('education_status_id')) <option value="{{old('education_status_id')}}">{{ \App\EducationStatus::find(old('education_status_id'))->{'education_status_'.app()->getLocale()} }}</option> @endif
+                                                </optgroup>
                                             </select>
                                             @error('education_status_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
@@ -313,9 +328,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('degree_id')has-danger @enderror ">
                                             <label>@lang('app.degree') <i class="fa fa-refresh" id="degree_id_refresh"></i></label>
-                                            <select name="degree_id" id="degree_id" class="custom-select form-control @error('degree_id')form-control-danger @enderror" onclick="RemoveError('degree_id')" >
+                                            <select name="degree_id" id="" class="custom-select form-control @error('degree_id')form-control-danger @enderror" onclick="RemoveError('degree_id')" >
                                                 {{------ by ajax ------}}
-                                            </select>
+                                                <option value="{{$employee->degree_id}}">{{ \App\Degree::find($employee->degree_id)->{'degree_'.app()->getLocale()} }}</option>
+                                                <optgroup id="degree_id" label="{{ \App\Degree::find($employee->degree_id)->{'degree_'.app()->getLocale()} }}" data-max-options="2">
+                                                    @if(old('degree_id')) <option value="{{old('degree_id')}}">{{ \App\Degree::find(old('degree_id'))->{'degree_'.app()->getLocale()} }}</option> @endif
+                                                </optgroup>                                            </select>
                                             @error('degree_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -331,8 +349,12 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('level_experience_id')has-danger @enderror ">
                                             <label>@lang('app.level experience') <i class="fa fa-refresh" id="level_experience_id_refresh"></i></label>
-                                            <select name="level_experience_id" id="level_experience_id" class="custom-select form-control @error('level_experience_id')form-control-danger @enderror" onclick="RemoveError('level_experience_id')" >
+                                            <select name="level_experience_id" id="" class="custom-select form-control @error('level_experience_id')form-control-danger @enderror" onclick="RemoveError('level_experience_id')" >
                                                 {{------ by ajax ------}}
+                                                <option value="{{$employee->level_experience_id}}">{{ \App\LevelExperience::find($employee->level_experience_id)->{'level_experience_'.app()->getLocale()} }}</option>
+                                                <optgroup id="level_experience_id" label="{{ \App\LevelExperience::find($employee->level_experience_id)->{'level_experience_'.app()->getLocale()} }}" data-max-options="2">
+                                                    @if(old('level_experience_id')) <option value="{{old('level_experience_id')}}">{{ \App\LevelExperience::find(old('level_experience_id'))->{'level_experience_'.app()->getLocale()} }}</option> @endif
+                                                </optgroup>
                                             </select>
                                             @error('level_experience_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
@@ -351,7 +373,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group @error('experience_description')has-danger @enderror ">
                                             <label>@lang('app.experience description')</label>
-                                            <textarea  name="experience_description" id="experience_description" class="form-control  @error('experience_description')form-control-danger @enderror" value="{{old('experience_description')}}" onclick="RemoveError('experience_description')" >{{old('experience_description')}}</textarea>
+                                            <textarea  name="experience_description" id="experience_description" class="form-control  @error('experience_description')form-control-danger @enderror" value="{{old('experience_description')}}" onclick="RemoveError('experience_description')" >{{old('experience_description',$employee->experience_description)}}</textarea>
                                             @error('experience_description')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -370,17 +392,28 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('country_id') has-danger @enderror">
                                             <label>@lang('countries')</label>
-                                            <select name="country_id" id="country_id" onchange="GetCities(this.value)" class="custom-select form-control @error('country_id') form-control-danger @enderror">
-                                                @foreach($countries as $country)
-                                                    <option value="{{$country->id}}">{{ $country->{'name_'.app()->getLocale()} }}</option>
-                                                @endforeach
+
+                                            <select name="country_id" id="" onchange="GetCities(this.value)" class="custom-select form-control @error('country_id') form-control-danger @enderror">
+                                                <option value="{{$employee->addresses->country_id}}">{{ \App\Country::find($employee->addresses->country_id)->{'name_'.app()->getLocale()} }}</option>
+                                                <optgroup id="degree_id" label="{{ \App\Country::find($employee->addresses->country_id)->{'name_'.app()->getLocale()} }}" data-max-options="2">
+                                                    @if(old('country_id')) <option value="{{old('country_id')}}">{{ \App\Country::find(old('country_id'))->{'name_'.app()->getLocale()} }}</option> @endif
+                                                    @foreach($countries as $country)
+                                                        <option value="{{$country->id}}">{{ $country->{'name_'.app()->getLocale()} }}</option>
+                                                    @endforeach
+                                                </optgroup>
                                             </select>
+                                            @error('country_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group @error('city_id') has-danger @enderror">
                                             <label>@lang('cities')</label>
-                                            <select name="city_id" id="city_id"   class="custom-select form-control @error('city_id') form-control-danger @enderror">
+                                            <select name="city_id" id=""   class="custom-select form-control @error('city_id') form-control-danger @enderror">
+
+                                                @if(!is_null($employee->addresses->city_id)) <option value="{{$employee->addresses->city_id}}">{{ \App\City::find($employee->addresses->city_id)->{'name_'.app()->getLocale()} }}</option> @endif
+                                                <optgroup id="city_id" label="" data-max-options="2">
+                                                    @if(old('city_id')) <option value="{{old('city_id')}}">{{ \App\City::find(old('city_id'))->{'name_'.app()->getLocale()} }}</option> @endif
+                                                </optgroup>
 
                                             </select>
                                             @error('city_id')<div class="form-control-feedback">{{ $message }}</div>@enderror
@@ -390,21 +423,21 @@
                                     <div class="col-md-12">
                                         <div class="form-group @error('address_desc_en')has-danger @enderror ">
                                             <label>@lang('app.address_desc_en')</label>
-                                            <textarea  name="address_desc_en" id="address_desc_en" class="form-control  @error('address_desc_en')form-control-danger @enderror" value="{{old('address_desc_en')}}" onclick="RemoveError('address_desc_en')" >{{old('address_desc_en')}}</textarea>
+                                            <textarea  name="address_desc_en" id="address_desc_en" class="form-control  @error('address_desc_en')form-control-danger @enderror" value="{{old('address_desc_en')}}" onclick="RemoveError('address_desc_en')" >{{old('address_desc_en',$employee->addresses->address_desc_en)}}</textarea>
                                             @error('address_desc_en')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group @error('address_desc_ar')has-danger @enderror ">
                                             <label>@lang('app.address_desc_ar')</label>
-                                            <textarea  name="address_desc_ar" id="address_desc_ar" class="form-control  @error('address_desc_ar')form-control-danger @enderror" value="{{old('address_desc_ar')}}" onclick="RemoveError('address_desc_ar')" >{{old('address_desc_ar')}}</textarea>
+                                            <textarea  name="address_desc_ar" id="address_desc_ar" class="form-control  @error('address_desc_ar')form-control-danger @enderror" value="{{old('address_desc_ar')}}" onclick="RemoveError('address_desc_ar')" >{{old('address_desc_ar',$employee->addresses->address_desc_ar)}}</textarea>
                                             @error('address_desc_ar')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group @error('address_desc_fr')has-danger @enderror ">
                                             <label>@lang('app.address_desc_fr')</label>
-                                            <textarea  name="address_desc_fr" id="address_desc_fr" class="form-control  @error('address_desc_fr')form-control-danger @enderror" value="{{old('address_desc_fr')}}" onclick="RemoveError('address_desc_fr')" >{{old('address_desc_fr')}}</textarea>
+                                            <textarea  name="address_desc_fr" id="address_desc_fr" class="form-control  @error('address_desc_fr')form-control-danger @enderror" value="{{old('address_desc_fr')}}" onclick="RemoveError('address_desc_fr')" >{{old('address_desc_fr',$employee->addresses->address_desc_fr)}}</textarea>
                                             @error('address_desc_fr')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -423,14 +456,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('username') has-danger @enderror">
                                             <label>@lang('app.username') <i id="usergenerate" class="fa fa-refresh"></i> </label>
-                                            <input type="text" name="username" id="username" value="{{old('username')}}" class="form-control  @error('username') form-control-danger @enderror" onclick="RemoveError('username')" >
+                                            <input type="text" name="username" id="username" value="{{old('username',$employee->user->username)}}" class="form-control  @error('username') form-control-danger @enderror" onclick="RemoveError('username')" >
                                             @error('username')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group @error('password') has-danger @enderror">
                                             <label>@lang('app.password') </label>
-                                            <input type="password" name="password" id="password" value="{{old('password')}}" class="form-control  @error('password') form-control-danger @enderror" onclick="RemoveError('password')" >
+                                            <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control  @error('password') form-control-danger @enderror" onclick="RemoveError('password')" placeholder="@lang('if empty filed the old password consider')" >
                                             @error('password')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>
@@ -440,7 +473,7 @@
                                     @foreach($premisess as $premises)
                                         <div class="col-md-4">
                                             <div class="custom-control custom-checkbox mb-5">
-                                                <input type="checkbox" value="{{$premises->id}}" name="premisess[]" @if(is_array(old('premisess')) && in_array($premises->id,old('premisess'))) checked @endif  id="customCheck{{$premises->id}}" class="custom-control-input" >
+                                                <input type="checkbox" value="{{$premises->id}}" @if(is_array(json_decode($employee->user->premisses)) and in_array($premises->id,json_decode($employee->user->premisses))) checked @endif() name="premisess[]" @if(is_array(old('premisess')) && in_array($premises->id,old('premisess'))) checked @endif  id="customCheck{{$premises->id}}" class="custom-control-input" >
                                                 <label class="custom-control-label" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ $premises->{'description_'.app()->getLocale()} }}" aria-describedby="tooltip329944" for="customCheck{{$premises->id}}">{{$premises->nik_name}}</label>
                                             </div>
                                         </div>
@@ -453,7 +486,6 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -464,13 +496,15 @@
 
     @include('layouts.basic_scripts')
     @include('layouts.scripts_add_edit_employee')
-
     <script>
         setTimeout(function (){
+            document.getElementById('data_of_start_work').value = "{{old('data_of_start_work',date('d M Y',strtotime($employee->data_of_start_work)))}}";
             document.getElementById('time_of_attendees').value = "{{old('time_of_attendees',date('h:m a',strtotime($employee->time_of_attendees)))}}";
             document.getElementById('time_of_going').value = "{{old('time_of_going',date('h:m a',strtotime($employee->time_of_going)))}}";
-            },3000);
+        },3000);
     </script>
 
 @endsection
+
+
 

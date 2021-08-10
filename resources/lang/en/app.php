@@ -98,13 +98,18 @@ return [
     'countries'=>'Countries',
     'cities'=>'Cities',
 
-    'user add success'=>'complete add a new employee by name ',
-    'user add success'=>'تم اضافه مستخدم جديد باسم',
+    'user add success'=>'Complete Add A New Employee By Name ',
+    'user edit success'=>'Update On Employee',
 
 
     //edit employee
 
     'edit employee' => 'Edit Employee',
+    'if empty filed the old password consider'=>'If Empty Filed The Old Password Consider',
+
+    #delete
+    'delete employee process'=>'Delete Employee Process',
+    'delete employee fails'=>'Delete Employee Fails'
 
 
 

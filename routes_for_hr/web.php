@@ -21,7 +21,7 @@ Route::get('/999', function () {
 
 $group = [
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','login']
 ];
 
 Route::group($group,function (){
@@ -32,7 +32,9 @@ Route::group($group,function (){
     Route::post('/employee/store','EmployeeController@store')->name('store_employee');
 
     Route::get('/employee/edit/{id?}','EmployeeController@edit')->name('edit_employee');
-    Route::get('/employee/delete/{id?}','EmployeeController@destroy')->name('delete_employee');
+    Route::post('/employee/update/{id?}','EmployeeController@update')->name('update_employee');
+
+    Route::post('/employee/delete/{id?}','EmployeeController@destroy')->name('delete_employee');
 
 });
 

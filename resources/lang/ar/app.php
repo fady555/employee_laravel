@@ -78,5 +78,38 @@ return [
     'show'=>'اظهار',
     'personal img'=>'الصوره الشخصيه',
 
+    //add employee
+    'personal information'=>'المعلومات الشخصيه',
+    'add employee' =>'اضافه موظف ',
+    'full_name_en'=>'الاسم بالغه العربيه',
+    'full_name_ar'=>'الاسم بالغه الانجليزيه',
+    'full_name_fr'=>'الاسم بالغه الفرنسيه',
+    'create jop'=>'اضافه وظيفه',
+    'create type work'=>'اضافه نوع عمل',
+    'qualification'=>'المؤهلات',
+    'create education status'=>'اضافه حاله تعليميه',
+    'create degree'=>'اضاف درجه علميه',
+    'create level experience'=>'اضافه مستوى خبره',
+    'address_desc_en'=>'الوصف بالغه الانجليزيه',
+    'address_desc_ar'=>'الوصف بالغه العربيه',
+    'address_desc_fr'=>'الوصف بالغه الفرنسيه',
+    'countries'=>'الدول',
+    'cities'=>'المدن',
+
+    'user add success'=>'تم اضافه موظف جديد باسم',
+    'user edit success'=>'حدث له/لها تحديث و تاكيد',
+
+
+
+    //edit employee
+
+    'edit employee' => 'التعديل على الموظف ',
+    'if empty filed the old password consider'=>'اذا تركت خانت الباسورد فارغه الرقم السرى القديم سوف يعتمد',
+
+
+    #delete
+    'delete employee process'=>'عمليه حذف الموظف تتم',
+    'delete employee fails'=>' عمليه حذف الموظف بها خطاء'
+
 
 ];

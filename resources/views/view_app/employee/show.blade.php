@@ -45,7 +45,7 @@
                     </div>
                     <div class="pb-20">
                         @if(app()->getLocale() == "ar")
-                            <table id="TableData" class="table hover multiple-select-row data-table-export nowrap">
+                            <table id="TableData" class="data-table table hover multiple-select-row  nowrap">
                                 {{---<table class="table hover multiple-select-row data-table-export nowrap">---}}
                                 {{---<table class="data-table table hover multiple-select-row  nowrap">---}}
                                 <thead>
@@ -456,9 +456,12 @@
                     </div>
                 </div>
                 <!-- Export Datatable End -->
+
             </div>
         </div>
     </div>
+
+
 @endsection
 
 @section('scripts')
@@ -476,5 +479,7 @@
     <script src="{{asset('them/src/plugins/datatables/js/vfs_fonts.js')}}"></script>
     <!-- Datatable Setting js -->
     <script src="{{asset('them/vendors/scripts/datatable-setting.js')}}"></script>
+
+
 @endsection
 

@@ -17,7 +17,24 @@
     <script>
         swal(
             {
-                title: '{{session()->get('add_employee')}}!',
+                title: '{{session()->get('add_employee')}}',
+                text: 'You clicked the button!',
+                type: 'success',
+                showCancelButton: false,
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger'
+            }
+        )
+    </script>
+
+@endif
+
+@if(session()->has('edit_employee'))
+
+    <script>
+        swal(
+            {
+                title: '{{session()->get('edit_employee')}}',
                 text: 'You clicked the button!',
                 type: 'success',
                 showCancelButton: false,
