@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('title-header')
-
+            @lang('app.show employees')
 @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/jquery-steps/jquery.steps.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('them/vendors/styles/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/sweetalert2/sweetalert2.css')}}">
 
 @endsection
 
@@ -25,8 +26,8 @@
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">@lang('app.home')</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">@lang('app.information')</li>
+                                    <li class="breadcrumb-item"><a href="index.html">@lang('app.employees')</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">@lang('app.show employees')</li>
                                 </ol>
                             </nav>
                         </div>
@@ -43,7 +44,7 @@
 
                 <div class="card-box mb-30">
                     <div class="pd-20">
-                        <h4 class="text-blue h4">Data Table with Export Buttons</h4>
+                        <h4 class="text-blue h4">@lang('app.show employees')</h4>
                     </div>
                     <div class="pb-20">
                         <table class="table hover multiple-select-row data-table-export nowrap">
@@ -70,7 +71,7 @@
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                                 <a class="dropdown-item" href="{{route('show_employee',$employee->id)}}"><i class="dw dw-eye"></i> View</a>
                                                 <a class="dropdown-item" href="{{route('edit_employee',$employee->id)}}"><i class="dw dw-edit2"></i> Edit</a>
-                                                <a class="dropdown-item" href="{{route('delete_employee',$employee->id)}}"><i class="dw dw-delete-3"></i> Delete</a>
+                                                <a class="dropdown-item" onclick="Delet_em({{$employee->id}})" href="javascript:;"><i class="dw dw-delete-3"></i> Delete</a>
                                             </div>
                                         </div>
                                     </td>
@@ -97,26 +98,47 @@
 
 
 @section('scripts')
-    <script src="{{asset('them/src/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/dataTables.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/dataTables.responsive.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/responsive.bootstrap4.min.js')}}"></script>
-    <!-- buttons for Export datatable -->
-    <script src="{{asset('them/src/plugins/datatables/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/buttons.bootstrap4.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/buttons.print.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/buttons.html5.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/buttons.flash.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/pdfmake.min.js')}}"></script>
-    <script src="{{asset('them/src/plugins/datatables/js/vfs_fonts.js')}}"></script>
+    <@include('layouts.basic_scripts')
     <!-- Datatable Setting js -->
     <script src="{{asset('them/vendors/scripts/datatable-setting.js')}}"></script>
+    <script src="{{asset('them/src/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+    <script>
+        function Delet_em(id_employee) {
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                confirmButtonClass: 'btn btn-success margin-5',
+                cancelButtonClass: 'btn btn-danger margin-5',
+                buttonsStyling: false
+            }).then(function (result) {
+                //console.log(result['dismiss']);
+                if(result['dismiss'] == "cancel"){
+                    console.log('you are cancel delete'+id_employee);
+                }else{
+                    //if your choose yes delte
+                    console.log('you are submit delete'+id_employee);
+                    var x = '{{route('delete_employee')}}' + '/' + id_employee;
+                    $.post(x,{'_token':'{{csrf_token()}}'},function (one){
 
+                        var res = JSON.parse(one.trim());
 
-
-
-
-
+                        swal({
+                            position: 'top-end',
+                            type: res['result'],
+                            title: res['message'],
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                        setTimeout(function (){ window.location.reload();},3000);
+                    });
+                }
+            })
+        }
+    </script>
 
 
 

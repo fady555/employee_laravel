@@ -23,7 +23,8 @@ return [
     'home'=>'Home',
     'information'=>'Information',
     //page of employees
-    'show employee'=>'Show Employee',
+    'employees'=>'Employee',
+    'show employees'=>'Show Employees',
     'name'=>'Name',
     'age'=>'Age',
     'jop'=>'Jop',

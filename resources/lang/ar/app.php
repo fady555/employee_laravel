@@ -22,7 +22,8 @@ return [
     'home'=>'الصفحه الرئسيه',
     'information'=>'معلومات اضافيه',
     //page of employee
-    'show employee'=>'اظهار الموظفين',
+    'employees'=>'الموظفين',
+    'show employees'=>'اظهار الموظفين',
     'name'=>'الاسم',
     'age'=>'العمر',
     'jop'=>'الوظيفه',

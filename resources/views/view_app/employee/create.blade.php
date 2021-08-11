@@ -482,45 +482,6 @@
     </script>
 
 
-    <script>
-        function dd(id_employee) {
-            swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Yes, delete it!',
-                cancelButtonText: 'No, cancel!',
-                confirmButtonClass: 'btn btn-success margin-5',
-                cancelButtonClass: 'btn btn-danger margin-5',
-                buttonsStyling: false
-            }).then(function (result) {
-                //console.log(result['dismiss']);
-                if(result['dismiss'] == "cancel"){
-                    console.log('you are cancel delete'+id_employee);
-                }else{
-                    //if your choose yes delte
-                    console.log('you are submit delete'+id_employee);
-                    var x = '{{route('delete_employee')}}' + '/' + id_employee;
-                    $.post(x,{'_token':'{{csrf_token()}}'},function (one){
 
-                        var res = JSON.parse(one.trim());
-
-                        swal({
-                                position: 'top-end',
-                                type: res['result'],
-                                title: res['message'],
-                                showConfirmButton: false,
-                                timer: 3000
-                            })
-
-
-                    });
-
-                }
-
-            } )
-        }
-    </script>
 @endsection
 
