@@ -189,20 +189,21 @@ class EmployeeController extends Controller
 
 
         #if_file_change_delete the file old
-/*
+
         if($employee){
             foreach ($depend_array as $item=>$value) {
-                if($request->file($item) != null){unlink($value);}
+                if($request->file($item) != null &&  $value != null){unlink($value);}
             }
         }
 
-*/
+
     #edit user
         $data_user = [
             'username'=>$request->username,
-            'password'=>Hash::make($request->password),
+            //'password'=>Hash::make($request->password),
             //'premisses'=>json_encode($request->premisess),
         ];
+        if(!empty($request->password)){$data_user['password'] =Hash::make($request->password);}
         if(!empty($request->premisess)){$data_user['premisses'] = json_encode($request->premisess);}
 
         $employee->user()->update($data_user);

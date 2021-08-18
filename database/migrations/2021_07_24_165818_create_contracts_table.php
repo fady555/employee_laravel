@@ -26,8 +26,8 @@ class CreateContractsTable extends Migration
 
 
         DB::table('contracts')->insert([
-            ['type_id'=>1,'contract_file'=>'storage/contract/contract-labor-agreement.pdf'],
-            ['type_id'=>2,'contract_file'=>'storage/contract/contract-labor-agreement.pdf'],
+            ['type_id'=>1,'contract_file'=>null],
+            ['type_id'=>2,'contract_file'=>null],
         ]);
 
 
