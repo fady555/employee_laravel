@@ -6,19 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return redirect(\route('login'));
 });
 
 $group = [
@@ -28,32 +19,15 @@ $group = [
 
 Route::group($group,function (){
 
-    Route::get('op',function (){
-
-
-    });
-
     //middleware => 'login'    ==    'premises:1'
 
-    Route::get('login','LoginController@index');
+    Route::get('login','LoginController@index')->name('login');
     Route::post('login','LoginController@login')->name('login');
     Route::get('logout','LoginController@logout')->name('logout')->middleware(['login']);
     Route::view('start-page','start_page')->name('start_page')->middleware(['login']);
 
 
-
-
-
-
-
-    #test user to check
-    /*Route::get('all',function (){$x = session()->all(); return $x;});
-
-    Route::get('get',function (){$x =  session()->get('user_login');return $x['id'];});
-
-    Route::get('flush',function (){ session()->flush('user_login');return "seesion deleted";});*/
-
-    $middleware = [
+    /*$middleware = [
         'login',#user must be login
         'premises:1',
         'premises:2',
@@ -92,48 +66,9 @@ Route::group($group,function (){
         'premises:35',
         'premises:36',
 
-    ];
-
-    //Route::get('test',function (){return "test" ; })->middleware($middleware);
-    //Route::view('ee','view_app.employee');
-    //Route::view('lo','login');
-
-    Route::view('testq','test1');
-});
-
-
-
-
-
-Route::post('file',function (Request $request){
-
-
-    return $request->file('fileUp')->store('public/sss');
-
+    ];*/
 
 });
-
-Route::get('time',function (Request $request){
-
-
-    echo date( "Y-m-d", strtotime( "04 August 2021" ) );
-
-
-});
-
-
-Route::get('mm',function (Request $request){
-
-
-
-    //if(file_exists('storage/personal_identity_img/generalt.jpg')){unlink('storage/personal_identity_img/generalt.jpg');}
-
-
-
-});
-
-
-
 
 
 
