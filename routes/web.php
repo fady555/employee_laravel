@@ -29,27 +29,6 @@ $group = [
 Route::group($group,function (){
 
     Route::get('op',function (){
-        //return "eny";
-       /* $id= 1 ;
-        $emid= 1 ;
-        $username = 'sfs';
-        session()->put('user_login',['id'=>$id,'employee_id'=>$emid,'username'=>$username,]);*/
-        //return session()->get('user_login');
-        //return session()->flash('user_login');
-
-        //$x = Auth::attempt(array('username'=>'SAO1234','password'=>'fady1234'),true);
-
-        //return $x ;
-        //session()->put('user_login',['id'=>'$id','employee_id'=>'$emid','username'=>'$username',]);
-
-        //return session()->all() ;
-
-        $x =  session()->get('user_login');
-
-
-        //if(isset($x[0])){ return $x[0]; }else{return  "ssession flush";}
-
-        //return redirect('/');
 
 
     });
@@ -76,7 +55,6 @@ Route::group($group,function (){
 
     $middleware = [
         'login',#user must be login
-
         'premises:1',
         'premises:2',
         'premises:3',

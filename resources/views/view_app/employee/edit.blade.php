@@ -474,7 +474,7 @@
                                         <div class="col-md-4">
                                             <div class="custom-control custom-checkbox mb-5">
                                                 <input type="checkbox" value="{{$premises->id}}" @if(is_array(json_decode($employee->user->premisses)) and in_array($premises->id,json_decode($employee->user->premisses))) checked @endif() name="premisess[]" @if(is_array(old('premisess')) && in_array($premises->id,old('premisess'))) checked @endif  id="customCheck{{$premises->id}}" class="custom-control-input" >
-                                                <label class="custom-control-label" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ $premises->{'description_'.app()->getLocale()} }}" aria-describedby="tooltip329944" for="customCheck{{$premises->id}}">{{$premises->nik_name}}</label>
+                                                <label class="custom-control-label" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ $premises->{'description_'.app()->getLocale()}  }} " aria-describedby="tooltip329944" for="customCheck{{$premises->id}}">{{$premises->nik_name}} ({{$premises->id}})</label>
                                             </div>
                                         </div>
                                     @endforeach

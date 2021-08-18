@@ -13,15 +13,55 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+$middleware = [
+    #language macamara
+    'localeSessionRedirect', 'localizationRedirect', 'localeViewPath',
+    #user must be login
+    'login',
+    #premises
+    'premises:1',
+    'premises:2',
+    'premises:3',
+    'premises:4',
+    'premises:5',
+    'premises:6',
+    'premises:7',
+    'premises:8',
+    'premises:9',
+    'premises:10',
+    'premises:11',
+    'premises:12',
+    'premises:13',
+    'premises:14',
+    'premises:15',
+    'premises:16',
+    'premises:17',
+    'premises:18',
+    'premises:19',
+    'premises:20',
+    'premises:21',
+    'premises:22',
+    'premises:23',
+    'premises:24',
+    'premises:25',
+    'premises:26',
+    'premises:27',
+    'premises:28',
+    'premises:29',
+    'premises:30',
+    'premises:31',
+    'premises:32',
+    'premises:33',
+    'premises:34',
+    'premises:35',
+    'premises:36',
 
-Route::get('/999', function () {
-    return view('welcome');
-});
+];
 
 
 $group = [
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','login']
+    'middleware' => $middleware
 ];
 
 Route::group($group,function (){
