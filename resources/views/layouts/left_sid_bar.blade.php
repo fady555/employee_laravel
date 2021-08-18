@@ -21,6 +21,7 @@
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             <ul id="accordion-menu">
+
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
@@ -28,6 +29,15 @@
                     <ul class="submenu">
                         <li><a href="index.html">Dashboard style 1</a></li>
                         <li><a href="index2.html">Dashboard style 2</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-house-1"></span><span class="mtext">@lang('app.employees')</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{route('show_employees')}}">@lang('app.show employees')</a></li>
+                        <li><a href="{{route('add_employee')}}">@lang('app.add employee')</a></li>
                     </ul>
                 </li>
 

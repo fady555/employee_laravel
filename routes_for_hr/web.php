@@ -56,7 +56,7 @@ Route::get('ooo',function (){
         'levelExperience',
         'contract.type_of_work',
         'user',
-    ])->where('id',3)->get();
+    ])->get();
 
     return $employee;
 });

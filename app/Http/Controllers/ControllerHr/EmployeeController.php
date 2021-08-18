@@ -189,14 +189,14 @@ class EmployeeController extends Controller
 
 
         #if_file_change_delete the file old
-
+/*
         if($employee){
             foreach ($depend_array as $item=>$value) {
                 if($request->file($item) != null){unlink($value);}
             }
         }
 
-
+*/
     #edit user
         $data_user = [
             'username'=>$request->username,
