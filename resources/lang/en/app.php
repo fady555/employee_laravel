@@ -110,7 +110,22 @@ return [
 
     #delete
     'delete employee process'=>'Delete Employee Process',
-    'delete employee fails'=>'Delete Employee Fails'
+    'delete employee fails'=>'Delete Employee Fails',
+
+
+
+
+    //=========================================================jop=================================
+
+    'jop name english'=>'Jop Name English',
+    'jop name arabic'=>'Jop Name Arabic',
+    'jop name france'=>'Jop Name France',
+    'nik name'=>'Nik Name',
+    'english description'=>'English Description',
+    'arabic description'=>'Arabic Description',
+    'france description'=>'France Description',
+    'add jop'=>'Add Jop',
+    'jops'=>'Jops',
 
 
 

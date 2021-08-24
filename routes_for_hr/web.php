@@ -66,6 +66,7 @@ $group = [
 
 Route::group($group,function (){
 
+    //employee
     Route::get('/employee/show-all','EmployeeController@index')->name('show_employees');
     Route::get('/employee/show/{id?}','EmployeeController@show')->name('show_employee');
     Route::get('/employee/add','EmployeeController@create')->name('add_employee');
@@ -76,6 +77,14 @@ Route::group($group,function (){
 
     Route::post('/employee/delete/{id?}','EmployeeController@destroy')->name('delete_employee');
 
+
+
+    //jop
+    Route::get('/jop/show','JopController@index')->name('show_jop');
+    Route::get('/jop/show/{id?}','JopController@show')->name('show_jop_id');
+    Route::post('/jop/add','JopController@create')->name('add_jop');
+
+    Route::post('/jop/edit/{id?}','JopController@update')->name('edit_jop');
 });
 
 
