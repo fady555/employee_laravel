@@ -33,7 +33,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-house-1"></span><span class="mtext">@lang('app.employees')</span>
+                        <span class="micon icon-copy dw dw-user-3 "></span><span class="mtext">@lang('app.employees')</span>
                     </a>
                     <ul class="submenu">
                         <li><a href="{{route('show_employees')}}">@lang('app.show employees')</a></li>
@@ -41,6 +41,11 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="{{route('show_jop')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-compass-1 "></span><span class="mtext">@lang('app.jops')</span>
+                    </a>
+                </li>
                 <li>
                     <a href="sitemap.html" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-diagram"></span><span class="mtext">Sitemap</span>
