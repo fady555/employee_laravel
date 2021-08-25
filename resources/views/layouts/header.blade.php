@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/datatables/css/dataTables.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('them/vendors/styles/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/sweetalert2/sweetalert2.css')}}">
 
     @yield('css')
 

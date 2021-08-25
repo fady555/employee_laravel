@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jop extends Model
 {
+
     protected $table='jops';
     protected $fillable=[
         'name_ar',

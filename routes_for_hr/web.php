@@ -19,7 +19,7 @@ $middleware = [
     #user must be login
     'login',
     #premises
-    'premises:1',
+    /*'premises:1',
     'premises:2',
     'premises:3',
     'premises:4',
@@ -54,7 +54,7 @@ $middleware = [
     'premises:33',
     'premises:34',
     'premises:35',
-    'premises:36',
+    'premises:36',*/
 
 ];
 
@@ -85,6 +85,8 @@ Route::group($group,function (){
     Route::post('/jop/add','JopController@create')->name('add_jop');
 
     Route::post('/jop/edit/{id?}','JopController@update')->name('edit_jop');
+
+    Route::post('/jop/delete/{id?}','JopController@destroy')->name('delete_jop');
 });
 
 
@@ -162,6 +164,10 @@ Route::get('generate-username',function (){
 
 
 
+Route::get('upd',function (){
+    $em = Employee::where('jop_id',2);
+    $em->update(['jop_id'=>1]);
+});
 
 
 

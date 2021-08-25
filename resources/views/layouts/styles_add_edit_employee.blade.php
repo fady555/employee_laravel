@@ -9,4 +9,4 @@
 {{---------------bootstrap-touchspin css---------------------------------}}
 <link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('them/vendors/styles/style.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('them/src/plugins/sweetalert2/sweetalert2.css')}}">
+

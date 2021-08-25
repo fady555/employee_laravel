@@ -20,10 +20,12 @@
 <!-- main-container -->
 @yield('main-container')
 <!-- scripts -->
+{{--------
 <script src="{{asset('them/vendors/scripts/core.js')}}"></script>
 <script src="{{asset('them/vendors/scripts/script.min.js')}}"></script>
 <script src="{{asset('them/vendors/scripts/process.js')}}"></script>
 <script src="{{asset('them/vendors/scripts/layout-settings.js')}}"></script>
+------}}
 {{---
 <script src="src/plugins/apexcharts/apexcharts.min.js"></script>
 <script src="src/plugins/datatables/js/jquery.dataTables.min.js"></script>

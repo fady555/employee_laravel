@@ -126,6 +126,19 @@ return [
     'france description'=>'France Description',
     'add jop'=>'Add Jop',
     'jops'=>'Jops',
+    'edit jop'=>'Edit jop',
+
+    'Your work has been compelete'=>'Your Work Has Been Compelete',
+    'edit'=>'Edit',
+    'delete'=>'Delete',
+    'no jop exist'=>'No Jop Exist',
+    'something went wrong'=>'Something Went Wrong',
+    'sign jop'=>'Sign Jop',
+    'to delete in input request'=>'To Delete In Input Request',
+
+
+
+
 
 
 

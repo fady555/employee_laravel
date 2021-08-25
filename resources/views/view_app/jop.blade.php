@@ -15,7 +15,7 @@
             <div class="pd-20 card-box mb-30">
                 <div class="clearfix">
                     <div class="pull-left">
-                        <h4 class="text-blue h4">@lang('app.add jop')</h4>
+                        <h4 class="text-blue h4">@if(empty(request()->segment(4)))@lang('app.add jop') @else @lang('app.edit jop') @endif </h4>
                     </div>
 
                 </div>
@@ -89,19 +89,19 @@
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group" id="name_en">
                                     <label>@lang('app.jop name english')</label>
-                                    <input type="text" name="name_en" value="{{old('name_en')}}" class="form-control">
+                                    <input type="text" name="name_en" value="{{old('name_en',$jopEdit->name_en)}}" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group" id="name_ar">
                                     <label>@lang('app.jop name arabic')</label>
-                                    <input type="text" name="name_ar" value="{{old('name_ar')}}" class="form-control">
+                                    <input type="text" name="name_ar" value="{{old('name_ar',$jopEdit->name_ar)}}" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group" id="name_fr">
                                     <label>@lang('app.jop name france')</label>
-                                    <input type="text" name="name_fr"  value="{{old('name_fr')}}" class="form-control">
+                                    <input type="text" name="name_fr"  value="{{old('name_fr',$jopEdit->name_fr)}}" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group" id="nic_name">
                                     <label>@lang('app.nik name')</label>
-                                    <input type="text" name="nic_name" value="{{old('nic_name')}}" class="form-control">
+                                    <input type="text" name="nic_name" value="{{old('nic_name',$jopEdit->nic_name)}}" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -119,24 +119,24 @@
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group" id="description_en">
                                     <label>@lang('app.english description')</label>
-                                    <textarea type="text" name="description_en" class="form-control">{{old('description_en')}}</textarea>
+                                    <textarea type="text" name="description_en" class="form-control">{{old('description_en',$jopEdit->description_en)}}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group" id="description_ar">
                                     <label>@lang('app.arabic description')</label>
-                                    <textarea type="text" name="description_ar" class="form-control">{{old('description_ar')}}</textarea>
+                                    <textarea type="text" name="description_ar" class="form-control">{{old('description_ar',$jopEdit->description_ar)}}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group" id="description_fr">
                                     <label>@lang('app.france description')</label>
-                                    <textarea type="text" name="description_fr" class="form-control">{{old('description_fr')}}</textarea>
+                                    <textarea type="text" name="description_fr" class="form-control">{{old('description_fr',$jopEdit->description_fr)}}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <button class="btn btn-block btn-primary">@lang('app.add jop')</button>
+                                    <button class="btn btn-block btn-primary">@lang('app.edit jop')</button>
                                 </div>
                             </div>
                         </div>
@@ -177,8 +177,8 @@
                                                 <i class="dw dw-more"></i>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                <a class="dropdown-item" href="{{route('show_jop_id',['id'=>$jop->id])}}"><i class="dw dw-edit2"></i> Edit</a>
-                                                <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
+                                                <a class="dropdown-item" href="{{route('show_jop_id',['id'=>$jop->id])}}"><i class="dw dw-edit2"></i> @lang('app.edit')</a>
+                                                <a class="dropdown-item" onclick="DeleteJop({{$jop->id}},'{{$jop->nic_name}}')" href="javascript:;"><i class="dw dw-delete-3"></i> @lang('app.delete')</a>
                                             </div>
                                         </div>
                                     </td>
@@ -234,6 +234,56 @@
         }
     </script>
 
+<script>
+
+    function DeleteJop(id,NikName){
+
+        swal({
+            title: "@lang('app.sign jop')" +  '(' + NikName+ ')' + "@lang('app.to delete in input request')",
+            input: 'text',
+            showCancelButton: true,
+            showConfirmButton: true,
+            confirmButtonText: 'Submit',
+            showLoaderOnConfirm: true,
+            confirmButtonClass: 'btn btn-success',
+            cancelButtonClass: 'btn btn-danger',
+            preConfirm: function (nik_name) {
+
+               if(nik_name === NikName){
+
+                   $.post('{{route('delete_jop')}}' +'/'+ id,{'_token':'{{@csrf_token()}}'},function (one,two,three){
+
+                       if(one == 1){
+                           swal({
+                                   position: 'top-end',
+                                   type: 'success',
+                                   title: "@lang('app.Your work has been compelete')",
+                                   showConfirmButton: false,
+                                   timer: 1500
+                               })
+                           window.location.reload()
+                       }else {
+                           swal({
+                                   type: 'error',
+                                   title: '{{__("app.no jop exist")}}',
+                                   text: '{{__("app.something went wrong")}}',
+                               })
+                       }
+
+
+                   })
+                   //console.log('delete')
+
+               }else {}
+
+            }
+
+
+    })
+
+    }
+</script>
+
 
 
     @if($errors->any())
@@ -241,7 +291,6 @@
             <script> DangerValidate('{{$key}}','{{$error[0]}}') </script>
         @endforeach
     @endif
-
 
 
 

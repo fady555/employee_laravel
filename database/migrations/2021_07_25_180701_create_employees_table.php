@@ -15,6 +15,7 @@ class CreateEmployeesTable extends Migration
     public function up()
     {
         Schema::create('employees', function (Blueprint $table) {
+
             $table->id();
             $table->string('full_name_ar');
             $table->string('full_name_en');
@@ -41,8 +42,8 @@ class CreateEmployeesTable extends Migration
             $table->unsignedBigInteger('address_id');
             $table->foreign('address_id')->references('id')->on('addresses')->onUpdate('cascade')->onDelete('cascade');
             //=============================================================
-            $table->unsignedBigInteger('jop_id');
-            $table->foreign('jop_id')->references('id')->on('jops')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('jop_id')->nullable(20);
+            $table->foreign('jop_id')->references('id')->on('jops')->onUpdate('cascade')->onDelete('set null');
             //=============================================================
             $table->unsignedBigInteger('degree_id');
             $table->foreign('degree_id')->references('id')->on('degrees')->onUpdate('cascade')->onDelete('cascade');
@@ -59,6 +60,7 @@ class CreateEmployeesTable extends Migration
             $table->unsignedBigInteger('salary_id');
             $table->foreign('salary_id')->references('id')->on('all_type_salaries')->onUpdate('cascade')->onDelete('cascade');
             //=============================================================
+
 
 
             $table->timestamps();
@@ -87,7 +89,7 @@ class CreateEmployeesTable extends Migration
                 'time_of_going'=>'18:00',
                 'experience_description'=>'lab lab lab ',
                 'address_id'=>1,
-                'jop_id'=>1,
+                'jop_id'=>2,
                 'degree_id'=>1,
                 'education_status_id'=>1,
                 'level_experience_id'=>1,

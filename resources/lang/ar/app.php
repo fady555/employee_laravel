@@ -110,7 +110,29 @@ return [
 
     #delete
     'delete employee process'=>'عمليه حذف الموظف تتم',
-    'delete employee fails'=>' عمليه حذف الموظف بها خطاء'
+    'delete employee fails'=>' عمليه حذف الموظف بها خطاء',
+
+
+    //=========================================================jop=================================
+
+    'jop name english'=>'الوظيفه بالغه الانجليزيه',
+    'jop name arabic'=>'الوظيفه بالغه العربيه',
+    'jop name france'=>'الوظيفه بالغه الانجليزيه',
+    'nik name'=>'الاسم المتختصر',
+    'english description'=>'الوصف بالغه الانجليزيه',
+    'arabic description'=>'الوصف بالغه العربيه',
+    'france description'=>'الوصف بالغه الفرنسيه',
+    'add jop'=>'اضافه وظيفه',
+    'jops'=>'الوظائف',
+    'edit jop'=>'تعديل الوظيفه',
+
+    'Your work has been compelete'=>'تم اكتمال العمل بنجاح',
+    'edit'=>'تعديل',
+    'delete'=>'حذف',
+    'no jop exist'=>'لا توجد وظيفه هناك',
+    'something went wrong'=>'قد يكون هنالك مشكله ما',
+    'sign jop'=>'فى الحقل لتأكيد الحذف',
+    'to delete in input request'=>'وقع باسم',
 
 
 ];

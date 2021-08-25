@@ -27,6 +27,7 @@ class CreateJopsTable extends Migration
         });
 
         DB::table('jops')->insert([
+            ['name_en'=>"____",'name_ar'=>"_________","name_fr"=>'_________','nic_name'=>"___________"],
             ['name_en'=>"Human Resource",'name_ar'=>"الموارد البشريه","name_fr"=>'Ressource Humaine','nic_name'=>"HR"],
             ['name_en'=>"law affires",'name_ar'=>"شئون قانونيه","name_fr"=>'ِِAffaires Juridiques','nic_name'=>"law"],
             ['name_en'=>"back end developer",'name_ar'=>"مطور الواجهه الخلفيه","name_fr"=>'développeur back-end','nic_name'=>"BK-end"],

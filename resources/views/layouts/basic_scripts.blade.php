@@ -1,3 +1,11 @@
+
+
+<!-- scripts -->
+<script src="{{asset('them/vendors/scripts/core.js')}}"></script>
+<script src="{{asset('them/vendors/scripts/script.min.js')}}"></script>
+<script src="{{asset('them/vendors/scripts/process.js')}}"></script>
+<script src="{{asset('them/vendors/scripts/layout-settings.js')}}"></script>
+
 <script src="{{asset('them/src/plugins/datatables/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('them/src/plugins/datatables/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('them/src/plugins/datatables/js/dataTables.responsive.min.js')}}"></script>
@@ -10,3 +18,5 @@
 <script src="{{asset('them/src/plugins/datatables/js/buttons.flash.min.js')}}"></script>
 <script src="{{asset('them/src/plugins/datatables/js/pdfmake.min.js')}}"></script>
 <script src="{{asset('them/src/plugins/datatables/js/vfs_fonts.js')}}"></script>
+
+<script src="{{asset('them/src/plugins/sweetalert2/sweetalert2.all.js')}}"></script>

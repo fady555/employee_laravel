@@ -9,7 +9,7 @@
 <script src="{{asset('them/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
 <script src="{{asset('them/vendors/scripts/advanced-components.js')}}"></script>
 
-<script src="{{asset('them/src/plugins/sweetalert2/sweetalert2.all.js')}}"></script>
+
 
 
 @if(session()->has('add_employee'))
