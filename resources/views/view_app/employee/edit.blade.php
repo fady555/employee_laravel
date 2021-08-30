@@ -219,7 +219,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('app.create jop')</label>
-                                            <a href="#" class="btn btn-primary  btn-block">@lang('app.create jop')</a>
+                                            <a href="{{route('show_jop')}}" class="btn btn-primary  btn-block">@lang('app.create jop')</a>
                                         </div>
                                     </div>
                                 </div>
@@ -242,7 +242,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('app.create type work')</label>
-                                            <a href="#" class="btn btn-primary  btn-block">@lang('app.create type work')</a>
+                                            <a href="{{route('show_type_work')}}" class="btn btn-primary  btn-block">@lang('app.create type work')</a>
                                         </div>
                                     </div>
                                 </div>
@@ -319,7 +319,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('app.create education status')</label>
-                                            <a href="#" class="btn btn-primary  btn-block">@lang('app.create education status')</a>
+                                            <a href="{{route('show_education')}}" class="btn btn-primary  btn-block">@lang('app.create education status')</a>
                                         </div>
                                     </div>
                                 </div>
@@ -341,7 +341,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('app.create degree')</label>
-                                            <a href="#" class="btn btn-primary  btn-block">@lang('app.create degree')</a>
+                                            <a href="{{route('show_degree')}}" class="btn btn-primary  btn-block">@lang('app.create degree')</a>
                                         </div>
                                     </div>
                                 </div>
@@ -363,7 +363,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>@lang('app.create level experience')</label>
-                                            <a href="#" class="btn btn-primary  btn-block">@lang('app.create level experience')</a>
+                                            <a href="{{route('show_experience')}}" class="btn btn-primary  btn-block">@lang('app.create level experience')</a>
                                         </div>
                                     </div>
                                 </div>
