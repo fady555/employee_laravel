@@ -152,6 +152,23 @@ return [
     'add new experience success'=>'Add New Experience Success',
     'update new experience success'=>'Update New Experience Success',
 
+    //-----------------------------------------------Type Of Work --------------------
+    'edit type of work'=>'Edit Level Experience',
+
+    'type of work name english'=>'Type Of Work Name English',
+    'type of work name arabic'=>'Type Of Work Name Arabic',
+    'type of work name france'=>'Type Of Work Name France',
+
+    'type of work description english'=>'Type Of Work Description English',
+    'type of work description arabic'=>'Type Of Work Description Arabic',
+    'type of work description france'=>'Type Of Work Description France',
+
+    'create/update type of work'=>'Create/Update Level Experience',
+    'no type of work exist'=>'No Type Of Work Exist',
+    //'are you sure to delete'=>'Are You Sure To Delete',
+
+    'add new type of work success'=>'Add New Type Of Work Success',
+    'update new type of work success'=>'Update New Type Of Work Success',
 
 
 

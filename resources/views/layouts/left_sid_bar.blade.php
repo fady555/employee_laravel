@@ -47,12 +47,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('show_jop')}}" class="dropdown-toggle no-arrow">
+                    <a href="{{route('show_experience')}}" class="dropdown-toggle no-arrow">
                         <span class="micon icon-copy dw dw-compass-1 "></span><span class="mtext">@lang('app.level experience')</span>
                     </a>
                 </li>
                 <li>
-                    <a href="sitemap.html" class="dropdown-toggle no-arrow">
+                    <a href="{{route('show_type_work')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-workflow"></span><span class="mtext">@lang('app.type of work')</span>
                     </a>
                 </li>

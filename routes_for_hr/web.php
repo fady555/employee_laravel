@@ -97,6 +97,16 @@ Route::group($group,function (){
 
     Route::post('/experience/delete/{id?}','ExperienceController@destroy')->name('delete_experience');
 
+    //type of work  type_work types-work
+
+    Route::get('/types-work/show','TypeWorkController@index')->name('show_type_work');
+    Route::get('/types-work/show/{id?}','TypeWorkController@show')->name('show_type_work_id');
+    Route::post('/types-work/add','TypeWorkController@create')->name('add_type_work');
+
+    Route::post('/types-work/edit/{id?}','TypeWorkController@update')->name('edit_type_work');
+
+    Route::post('/types-work/delete/{id?}','TypeWorkController@destroy')->name('delete_type_work');
+
 });
 
 
@@ -170,14 +180,6 @@ Route::get('generate-username',function (){
 
 
 
-
-
-
-
-Route::get('upd',function (){
-    $em = Employee::where('jop_id',2);
-    $em->update(['jop_id'=>1]);
-});
 
 
 
