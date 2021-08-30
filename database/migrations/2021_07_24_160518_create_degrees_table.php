@@ -23,6 +23,7 @@ class CreateDegreesTable extends Migration
         });
 
         DB::table('degrees')->insert([
+            ['degree_en'=>"------" ,'degree_ar'=>"------","degree_fr"=>"------"],
             ['degree_en'=>"Bachelor of Laws" ,'degree_ar'=>"بكالوريوس في القانون","degree_fr"=>"Baccalauréat en droit"],
             ['degree_en'=>"Bachelor of Commerce" ,'degree_ar'=>"بكالوريوس تجاره","degree_fr"=>"Baccalauréat en commerce"],
             ['degree_en'=>"Bachelor of computer science" ,'degree_ar'=>"بكالوريوس حاسبات معومات","degree_fr"=>"Licence en Sciences informatiques"],

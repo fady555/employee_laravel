@@ -115,7 +115,15 @@ Route::group($group,function (){
     Route::post('/education/edit/{id?}','EducationController@update')->name('edit_education');
 
     Route::post('/education/delete/{id?}','EducationController@destroy')->name('delete_education');
+    //degree
 
+    Route::get('/degree/show','ControllerDegree@index')->name('show_degree');
+    Route::get('/degree/show/{id?}','ControllerDegree@show')->name('show_degree_id');
+    Route::post('/degree/add','ControllerDegree@create')->name('add_degree');
+
+    Route::post('/degree/edit/{id?}','ControllerDegree@update')->name('edit_degree');
+
+    Route::post('/degree/delete/{id?}','ControllerDegree@destroy')->name('delete_degree');
 });
 
 

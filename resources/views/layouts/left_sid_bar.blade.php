@@ -57,13 +57,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{route('show_jop')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon icon-copy dw dw-compass-1 "></span><span class="mtext">@lang('app.degree')</span>
+                    <a href="{{route('show_education')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-edit-file"></span><span class="mtext">@lang('app.education')</span>
                     </a>
                 </li>
                 <li>
-                    <a href="sitemap.html" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-edit-file"></span><span class="mtext">@lang('app.education')</span>
+                    <a href="{{route('show_degree')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon icon-copy dw dw-compass-1 "></span><span class="mtext">@lang('app.degree')</span>
                     </a>
                 </li>
                 <li>

@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Degree;
 use App\EducationStatus;
 use App\Jop;
 use App\LevelExperience;
+use App\Observers\DegreeObserver;
 use App\Observers\EducationObserver;
 use App\Observers\ExperienceObserver;
 use App\Observers\JopObserver;
@@ -36,5 +38,6 @@ class AppServiceProvider extends ServiceProvider
         LevelExperience::observe(ExperienceObserver::class);
         TypeOfWork::observe(TypeObserver::class);
         EducationStatus::observe(EducationObserver::class);
+        Degree::observe(DegreeObserver::class);
     }
 }

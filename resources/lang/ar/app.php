@@ -46,7 +46,7 @@ return [
     'time of attendance'=>'وقت الحضور',
     'time of going'=>'وقت الانصراف',
     'experience description'=>'وصف الخبره',
-    'degree'=>'الدرجه العليه',
+    'degree'=>'الدرجه العلميه',
     'education'=>'التعليم',
     'level experience'=>'مستوى الخبره',
     'contract'=>'العقد',
@@ -145,6 +145,54 @@ return [
     'are you sure to delete'=>'هل انتا متاكد من الحذف',
     'add new experience success'=>'اضافه نوع خبره تم بنجاح',
     'update new experience success'=>' تم التعديل بنجاح',
+
+    //-----------------------------------------------Type Of Work --------------------
+    'edit type of work'=>'التعديل على مستوى الخبره',
+
+    'type of work name english'=>'اسم نوع العمل بالغه الانجليزيه',
+    'type of work name arabic'=>'اسم نوع العمل بالغه العربيه',
+    'type of work name france'=>'اسم نوع العمل بالغه الفرنسيه',
+
+    'type of work description english'=>'وصف نوع العمل بالغه الانجليزيه',
+    'type of work description arabic'=>'وصف نوع العمل بالغه العربيه',
+    'type of work description france'=>'وصف نوع العمل بالغه الفرنسيه',
+
+    'create/update type of work'=>'اضافه/تعديل على نوع العمل',
+    'no type of work exist'=>'لا يوجد نوع عمل',
+    //'are you sure to delete'=>'Are You Sure To Delete',
+
+    'add new type of work success'=>'اضافه نوع عمل جديد تم بنجاح',
+    'update new type of work success'=>'تديث نوع العمل تم بنجاح',
+    //-----------------------------------------------education  --------------------
+    'edit education'=>'التعديل على الحاله التعليم',
+
+    'education name english'=>'اسم الحاله التعلميه بالغه الانجليزيه',
+    'education name arabic'=>'اسم الحاله التعلميه بالغه العربيه',
+    'education name france'=>'اسم الحاله التعلميه بالغه الفرنسيه',
+
+
+    'create/update education'=>'اضافه/تعديل على الحاله التعلميه',
+    'no education exist'=>'لا توجد حاله تعلميه هناك',
+    //'are you sure to delete'=>'Are You Sure To Delete',
+
+    'add new of education success'=>'تم بنجاح اضافه حاله تعلميه جديده',
+    'update new education success'=>'تم بنجاح التعديل على حاله تعلميه جديده',
+
+    //-----------------------------------------------degree  --------------------
+    'edit degree'=>'التعديل على الدرجه العلميه',
+
+    'degree name english'=>'الدرجه العلمي بالغه الانجليزيه',
+    'degree name arabic'=>'الدرجه العلمي بالغه العربيه',
+    'degree name france'=>'الدرجه العلمي بالغه الفرنسيه',
+
+
+    'create/update degree'=>'اضافه/تعديل على الدرجه العلميه',
+    'no degree exist'=>'لا توجد درجه علميه',
+    //'are you sure to delete'=>'Are You Sure To Delete',
+
+    'add new of degree success'=>'تم اضافه درجه علميه جديده بنجاح',
+    'update new degree success'=>'تم التحديث الدرجه العلميه بنجاح',
+
 
 
 

@@ -163,7 +163,7 @@ return [
     'type of work description arabic'=>'Type Of Work Description Arabic',
     'type of work description france'=>'Type Of Work Description France',
 
-    'create/update type of work'=>'Create/Update Level Experience',
+    'create/update type of work'=>'Create/Update Type Of Work',
     'no type of work exist'=>'No Type Of Work Exist',
     //'are you sure to delete'=>'Are You Sure To Delete',
 
@@ -184,7 +184,22 @@ return [
     'add new of education success'=>'Add New Of Education Success',
     'update new education success'=>'Update New Education Success',
 
-    //-----------------------------------------------education  --------------------
+    //-----------------------------------------------degree  --------------------
+    'edit degree'=>'Edit Degree',
+
+    'degree name english'=>'Degree Name English',
+    'degree name arabic'=>'Degree Name Arabic',
+    'degree name france'=>'Degree Name France',
+
+
+    'create/update degree'=>'Create/Update Degree',
+    'no degree exist'=>'No Degree Exist',
+    //'are you sure to delete'=>'Are You Sure To Delete',
+
+    'add new of degree success'=>'Add New Of Degree Success',
+    'update new degree success'=>'Update New Degree Success',
+
+
 
 
 
