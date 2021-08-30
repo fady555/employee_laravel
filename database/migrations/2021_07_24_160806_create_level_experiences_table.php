@@ -22,6 +22,7 @@ class CreateLevelExperiencesTable extends Migration
             $table->timestamps();
         });
         DB::table('level_experiences')->insert([
+            ['level_experience_ar'=>'------','level_experience_en'=>'------','level_experience_fr'=>'------'],
             ['level_experience_ar'=>'طازج','level_experience_en'=>'fresh','level_experience_fr'=>'Frais'],
             ['level_experience_ar'=>'متدرب','level_experience_en'=>'tranee','level_experience_fr'=>'stagiaire'],
             ['level_experience_ar'=>'جونير','level_experience_en'=>'jounir','level_experience_fr'=>'Junior'],

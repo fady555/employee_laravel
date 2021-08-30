@@ -126,13 +126,31 @@ return [
     'jops'=>'الوظائف',
     'edit jop'=>'تعديل الوظيفه',
 
-    'Your work has been compelete'=>'تم اكتمال العمل بنجاح',
+    'your work has been completed'=>'تم اكتمال العمل بنجاح',
     'edit'=>'تعديل',
     'delete'=>'حذف',
     'no jop exist'=>'لا توجد وظيفه هناك',
     'something went wrong'=>'قد يكون هنالك مشكله ما',
     'sign jop'=>'فى الحقل لتأكيد الحذف',
     'to delete in input request'=>'وقع باسم',
+
+    //=====================================expreience=================================
+
+    'edit level experience'=>'تعديل على مستوى الخبراه',
+    'experience name english'=>'اسم الخبره بالغه الانجيزيه',
+    'experience name arabic'=>'اسم الخبره بالغه العربيه',
+    'experience name france'=>'اسم الخبره بالغه الفرنسيه',
+    'create/update level experience'=>'اضافه/تعديل مستوى الخبره',
+    'no experience exist'=>'لا يوجد مستوى خبره',
+    'are you sure to delete'=>'هل انتا متاكد من الحذف',
+    'add new experience success'=>'اضافه نوع خبره تم بنجاح',
+    'update new experience success'=>' تم التعديل بنجاح',
+
+
+
+
+
+
 
 
 ];

@@ -87,6 +87,16 @@ Route::group($group,function (){
     Route::post('/jop/edit/{id?}','JopController@update')->name('edit_jop');
 
     Route::post('/jop/delete/{id?}','JopController@destroy')->name('delete_jop');
+    //experience
+
+    Route::get('/experience/show','ExperienceController@index')->name('show_experience');
+    Route::get('/experience/show/{id?}','ExperienceController@show')->name('show_experience_id');
+    Route::post('/experience/add','ExperienceController@create')->name('add_experience');
+
+    Route::post('/experience/edit/{id?}','ExperienceController@update')->name('edit_experience');
+
+    Route::post('/experience/delete/{id?}','ExperienceController@destroy')->name('delete_experience');
+
 });
 
 

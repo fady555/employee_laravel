@@ -43,7 +43,7 @@ class CreateEmployeesTable extends Migration
             $table->foreign('address_id')->references('id')->on('addresses')->onUpdate('cascade')->onDelete('cascade');
             //=============================================================
             $table->unsignedBigInteger('jop_id')->nullable(20);
-            $table->foreign('jop_id')->references('id')->on('jops')->onUpdate('cascade')->onDelete('set null');
+            $table->foreign('jop_id')->references('id')->on('jops')->onUpdate('cascade')->onDelete('cascade');
             //=============================================================
             $table->unsignedBigInteger('degree_id');
             $table->foreign('degree_id')->references('id')->on('degrees')->onUpdate('cascade')->onDelete('cascade');
@@ -92,7 +92,7 @@ class CreateEmployeesTable extends Migration
                 'jop_id'=>2,
                 'degree_id'=>1,
                 'education_status_id'=>1,
-                'level_experience_id'=>1,
+                'level_experience_id'=>2,
                 'contract_id'=>1,
                 'salary_id'=>1,
             ]
@@ -122,7 +122,7 @@ class CreateEmployeesTable extends Migration
                 'jop_id'=>2,
                 'degree_id'=>2,
                 'education_status_id'=>2,
-                'level_experience_id'=>2,
+                'level_experience_id'=>3,
                 'contract_id'=>2,
                 'salary_id'=>2,
 

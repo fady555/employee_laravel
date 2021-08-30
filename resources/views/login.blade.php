@@ -100,7 +100,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="username" value="{{old('username')}}" class="form-control form-control-lg  @error('username') form-control-danger @enderror" placeholder="@lang('app.username')">
+                            <input type="text" name="username" value="{{old('username')}}" class="form-control form-control-lg  @error('username') form-control-danger @enderror" placeholder="@lang('app.username')" autocomplete="off">
                             @error('username')
                             <div class="form-control-feedback text-danger">{{$message}}</div>
                             @enderror

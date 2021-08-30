@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title-header')
-   jop
+   @lang('app.jop')
 @endsection
 
 @section('css')
@@ -145,51 +145,51 @@
                 @endif
 
                 <!-- Simple Datatable start -->
-                <div class="">
-                    <div class="pd-20">
+                <div class="clearfix">
+                    <div class="pull-left">
                         <h4 class="text-blue h4">@lang('app.jops')</h4>
                     </div>
-                    <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap">
-                            <thead>
-                            <tr>
-                                <th class="table-plus datatable-nosort">@lang('app.nik name')</th>
-                                <th>@lang('app.jop name arabic')</th>
-                                <th>@lang('app.jop name france')</th>
-                                <th>@lang('app.jop name english')</th>
-                                <th class="datatable-nosort">@lang('app.action')</th>
-                                <th>@lang('app.english description')</th>
-                                <th>@lang('app.arabic description')</th>
-                                <th>@lang('app.france description')</th>
+                </div>
+                <div class="pb-20">
+                    <table class="data-table table stripe hover nowrap">
+                        <thead>
+                        <tr>
+                            <th class="table-plus datatable-nosort">@lang('app.nik name')</th>
+                            <th>@lang('app.jop name arabic')</th>
+                            <th>@lang('app.jop name france')</th>
+                            <th>@lang('app.jop name english')</th>
+                            <th class="datatable-nosort">@lang('app.action')</th>
+                            <th>@lang('app.english description')</th>
+                            <th>@lang('app.arabic description')</th>
+                            <th>@lang('app.france description')</th>
 
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($jops as $jop)
-                                <tr>
-                                    <td class="table-plus">{{$jop->nic_name}}</td>
-                                    <td>{{$jop->name_en}}</td>
-                                    <td>{{$jop->name_ar}}</td>
-                                    <td>{{$jop->name_fr}}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                                <i class="dw dw-more"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                <a class="dropdown-item" href="{{route('show_jop_id',['id'=>$jop->id])}}"><i class="dw dw-edit2"></i> @lang('app.edit')</a>
-                                                <a class="dropdown-item" onclick="DeleteJop({{$jop->id}},'{{$jop->nic_name}}')" href="javascript:;"><i class="dw dw-delete-3"></i> @lang('app.delete')</a>
-                                            </div>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($jops as $jop)
+                            <tr>
+                                <td class="table-plus">{{$jop->nic_name}}</td>
+                                <td>{{$jop->name_en}}</td>
+                                <td>{{$jop->name_ar}}</td>
+                                <td>{{$jop->name_fr}}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                            <i class="dw dw-more"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                            <a class="dropdown-item" href="{{route('show_jop_id',['id'=>$jop->id])}}"><i class="dw dw-edit2"></i> @lang('app.edit')</a>
+                                            <a class="dropdown-item" onclick="DeleteJop({{$jop->id}},'{{$jop->nic_name}}')" href="javascript:;"><i class="dw dw-delete-3"></i> @lang('app.delete')</a>
                                         </div>
-                                    </td>
-                                    <td>{{$jop->description_en}}</td>
-                                    <td>{{$jop->description_ar}}</td>
-                                    <td>{{$jop->description_fr}}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
+                                    </div>
+                                </td>
+                                <td>{{$jop->description_en}}</td>
+                                <td>{{$jop->description_ar}}</td>
+                                <td>{{$jop->description_fr}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <!-- Simple Datatable End -->
 

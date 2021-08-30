@@ -128,7 +128,7 @@ return [
     'jops'=>'Jops',
     'edit jop'=>'Edit jop',
 
-    'Your work has been compelete'=>'Your Work Has Been Compelete',
+    'your work has been completed'=>'Your Work Has Been Completed',
     'edit'=>'Edit',
     'delete'=>'Delete',
     'no jop exist'=>'No Jop Exist',
@@ -137,6 +137,20 @@ return [
     'to delete in input request'=>'To Delete In Input Request',
 
 
+    //=====================================expreience=================================
+
+    'edit level experience'=>'Edit Level Experience',
+
+    'experience name english'=>'Experience Name English',
+    'experience name arabic'=>'Experience Name Arabic',
+    'experience name france'=>'Experience Name France',
+
+    'create/update level experience'=>'Create/Update Level Experience',
+    'no experience exist'=>'No Experience Exist',
+    'are you sure to delete'=>'Are You Sure To Delete',
+
+    'add new experience success'=>'Add New Experience Success',
+    'update new experience success'=>'Update New Experience Success',
 
 
 
