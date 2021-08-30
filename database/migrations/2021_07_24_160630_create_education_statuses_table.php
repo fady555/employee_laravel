@@ -23,6 +23,7 @@ class CreateEducationStatusesTable extends Migration
         });
 
         DB::table('education_statuses')->insert([
+            ['education_status_ar'=>'------','education_status_en'=>'------','education_status_fr'=>'------'],
             ['education_status_ar'=>'طالب','education_status_en'=>'student','education_status_fr'=>'étudiante'],
             ['education_status_ar'=>'حديث تخرج','education_status_en'=>'A fresh graduate','education_status_fr'=>'Un jeune diplômé'],
             ['education_status_ar'=>'ذو خبره','education_status_en'=>'Experienced','education_status_fr'=>'Expérimenté'],

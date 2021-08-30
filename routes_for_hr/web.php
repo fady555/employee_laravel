@@ -106,6 +106,15 @@ Route::group($group,function (){
     Route::post('/types-work/edit/{id?}','TypeWorkController@update')->name('edit_type_work');
 
     Route::post('/types-work/delete/{id?}','TypeWorkController@destroy')->name('delete_type_work');
+    //education
+
+    Route::get('/education/show','EducationController@index')->name('show_education');
+    Route::get('/education/show/{id?}','EducationController@show')->name('show_education_id');
+    Route::post('/education/add','EducationController@create')->name('add_education');
+
+    Route::post('/education/edit/{id?}','EducationController@update')->name('edit_education');
+
+    Route::post('/education/delete/{id?}','EducationController@destroy')->name('delete_education');
 
 });
 

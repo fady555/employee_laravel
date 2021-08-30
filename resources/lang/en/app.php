@@ -169,8 +169,22 @@ return [
 
     'add new type of work success'=>'Add New Type Of Work Success',
     'update new type of work success'=>'Update New Type Of Work Success',
+    //-----------------------------------------------education  --------------------
+    'edit education'=>'Edit Education',
+
+    'education name english'=>'Education Name English',
+    'education name arabic'=>'Education Name Arabic',
+    'education name france'=>'Education Name France',
 
 
+    'create/update education'=>'Create/Update Education',
+    'no education exist'=>'No Education Exist',
+    //'are you sure to delete'=>'Are You Sure To Delete',
+
+    'add new of education success'=>'Add New Of Education Success',
+    'update new education success'=>'Update New Education Success',
+
+    //-----------------------------------------------education  --------------------
 
 
 
