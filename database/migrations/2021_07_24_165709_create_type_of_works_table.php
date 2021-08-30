@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 class CreateTypeOfWorksTable extends Migration
 {
     /**
@@ -26,6 +26,7 @@ class CreateTypeOfWorksTable extends Migration
         });
 
         DB::table('type_of_works')->insert([
+            ['work_type_en'=>'-------','work_type_ar'=>'-------','work_type_fr'=>'-------','description_en'=>'-------'],
             ['work_type_en'=>'Full Time','work_type_ar'=>'دوام كامل','work_type_fr'=>'À plein temps','description_en'=>'lab lab lab '],
             ['work_type_en'=>'Part Time','work_type_ar'=>'دوام جزئى','work_type_fr'=>'À temps partiel','description_en'=>'lab lab lab '],
         ]);
