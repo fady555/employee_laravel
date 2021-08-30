@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <button class="btn btn-block btn-primary">@lang('app.create/update type of work')</button>
+                                    <button class="btn btn-block btn-primary">@lang('app.create/update education')</button>
                                 </div>
                             </div>
                         </div>
