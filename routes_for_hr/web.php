@@ -19,7 +19,7 @@ $middleware = [
     #user must be login
     'login',
     #premises
-    /*'premises:1',
+    'premises:1',
     'premises:2',
     'premises:3',
     'premises:4',
@@ -54,7 +54,8 @@ $middleware = [
     'premises:33',
     'premises:34',
     'premises:35',
-    'premises:36',*/
+    'premises:36',
+    'premises:37',
 
 ];
 
@@ -131,23 +132,6 @@ Route::group($group,function (){
 
 
 
-
-
-Route::get('ooo',function (){
-    $employee = Employee::with([
-        'jop',
-        'addresses.country',
-        'addresses.city',
-        'salary',
-        'degree',
-        'education',
-        'levelExperience',
-        'contract.type_of_work',
-        'user',
-    ])->get();
-
-    return $employee;
-});
 
 
 Route::get('jops',function (){

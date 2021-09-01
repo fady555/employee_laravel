@@ -70,6 +70,16 @@
         </div>
     </div>
 </div>
+@if(session()->has('access_premisses_deny'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{session()->get('access_premisses_deny')}}<strong><a href="{{URL::previous()}}">Back</a></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div>
+@endif
+
+
 <div class="login-wrap d-flex align-items-center flex-wrap justify-content-center">
     <div class="container">
         <div class="row align-items-center">

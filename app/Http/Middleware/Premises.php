@@ -22,6 +22,7 @@ class Premises
         if(in_array($premisess_number,$premisess_user)){
             return $next($request);
         }else{
+            session()->flash('access_premisses_deny','access premisses deny you have to option login  or ');
             return redirect('/login');
         }
 

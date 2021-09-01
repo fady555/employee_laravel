@@ -71,6 +71,7 @@
 
 
 @section('scripts')
+    @include('layouts.basic_scripts')
 @endsection
 
 
