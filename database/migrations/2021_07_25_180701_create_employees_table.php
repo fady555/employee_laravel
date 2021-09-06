@@ -99,9 +99,9 @@ class CreateEmployeesTable extends Migration
             ,
 
             [
-                'full_name_ar'=>'شادى ابراهيم عثمان',
-                'full_name_en'=>'Shady Ibrahem Osman',
-                'full_name_fr'=>'Shady Ibrahem Osman',
+                'full_name_ar'=>'ACC/شادى ابراهيم عثمان',
+                'full_name_en'=>'ACC/Shady Ibrahem Osman',
+                'full_name_fr'=>'ACC/Shady Ibrahem Osman',
                 'age'=>39,
                 'avatar'=>null,
                 'data_of_start_work'=>'2000-1-31',

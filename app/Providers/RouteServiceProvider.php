@@ -18,7 +18,7 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace_applicant = 'App\Http\Controllers\ControllerApplicant';
     protected $namespace_employee  = 'App\Http\Controllers\ControllerEmployee';
     protected $namespace_hr        = 'App\Http\Controllers\ControllerHr';
-    protected $namespace_manger    = 'App\Http\Controllers\ControllerManger';
+    protected $namespace_accountant    = 'App\Http\Controllers\ControllerAccountant';
 
     /**
      * The path to the "home" route for your application.
@@ -52,7 +52,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutesApplicant();
         $this->mapWebRoutesEmployee();
         $this->mapWebRoutesHr();
-        $this->mapWebRoutesManger();
+        $this->mapWebRoutesAccountant();
 
         //
     }
@@ -92,11 +92,11 @@ class RouteServiceProvider extends ServiceProvider
              ->group(base_path('routes_for_hr/web.php'));
     }
 
-    protected function mapWebRoutesManger()
+    protected function mapWebRoutesAccountant()
     {
         Route::middleware('web')
-             ->namespace($this->namespace_manger)
-             ->group(base_path('routes_for_manger/web.php'));
+             ->namespace($this->namespace_accountant)
+             ->group(base_path('routes_for_accountant/web.php'));
     }
 
 

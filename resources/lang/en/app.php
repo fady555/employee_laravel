@@ -200,6 +200,47 @@ return [
     'update new degree success'=>'Update New Degree Success',
 
 
+    //===========================================================================================================
+    //==================================================Accounting && Treasury department =====================================
+    //===========================================================================================================
+
+    'treasury'=>'Treasury',
+    'month'=>'Month',
+    'year'=>'Year',
+    'dashboard'=>'Dashboard Treasury ',
+    'show details salary'=>'Show Details Salary',
+    'add loan'=>'Add Loan',
+    'table salary of month'=>'Table Salary Of Month',
+    'for employee'=>'For Employee',
+    'value'=>'Value',
+    'number of day month'=>'Number Of day Month',
+    'number of time work'=>'Number Of Time Work',
+    'the day salary for employee'=>'The Day Salary For Employee',
+    'the hour salary for employee'=>'The Hour Salary For Employee',
+    'the hour number overtime for employee'=>'The Hour Number Overtime For Employee',
+    'the hour value salary overtime for employee'=>'The Hour Value Salary Overtime For Employee',
+    'another increments'=>'Another Increments',
+    'number day absence'=>'Number Day Absence',
+    'value day absence'=>'Value Day Absence',
+    'another discounts'=>'Another Discounts',
+    'total due for an employee'=>'Total due For An Employee',
+    'total due for an employee by word'=>'Total due For An Employee By Word',
+    "accountant's signature"=>"Accountant's Signature",
+    "employee's signature"=>"Employee's Signature",
+    'paid for employee'=>'Paid For Employee',
+    'add borrow for employee'=>'Add Borrow For Employee',
+    'add loan for employee'=>'Add Loan For Employee',
+    'add discount for employee'=>'Add Discount for employee',
+    'add another for employee'=>'Add Another for employee',
+    'write salary'=>'Write Salary',
+    'first confirm'=>'First Confirm',
+    'last confirm'=>'Last Confirm',
+    'paid status not happen'=>'Paid Status Not Happen',
+    'paid complete'=>'Paid Completed',
+    'employees by salary'=>'Employees By Salaries',
+    'add'=>'Add',
+
+
 
 
 

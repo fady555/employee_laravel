@@ -186,7 +186,7 @@
 @section('scripts')
     @include('layouts.basic_scripts')
     <!-- Datatable Setting js -->
-    <script src="{{asset('them/vendors/scripts/datatable-setting.js')}}"></script></body>
+    <script src="{{asset('them/vendors/scripts/datatable-setting.js')}}"></script>
     <script>
         //DangerValidate
         /*

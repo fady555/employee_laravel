@@ -66,10 +66,15 @@
                         <span class="micon icon-copy dw dw-compass-1 "></span><span class="mtext">@lang('app.degree')</span>
                     </a>
                 </li>
-                <li>
-                    <a href="sitemap.html" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-money-2"></span><span class="mtext">@lang('app.salary')</span>
+
+                <li class="dropdown show">
+                    <a href="javascript:;" class="dropdown-toggle" data-options="on">
+                        <span class="micon dw dw-money-2"></span><span class="mtext">@lang('app.treasury')</span>
                     </a>
+                    <ul class="submenu" style="display: block;">
+                        <li><a href="{{route('treasury')}}">@lang('app.dashboard')</a></li>
+                        <li><a href="{{route('employees_treasury')}}">@lang('app.employees by salary')</a></li>
+                    </ul>
                 </li>
 
             </ul>

@@ -173,23 +173,6 @@
                                                             <h4 class="mb-20 h4">@lang('app.salary list')</h4>
                                                             <ul class="list-group">
                                                                 <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['fixed_salary']}}$</li>
-                                                                <li class="list-group-item">@lang('app.responsibility_allowance'){{$employee[0]['salary']['responsibility_allowance']}}$</li>
-                                                                <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['natural_work']}}$</li>
-                                                                <li class="list-group-item">@lang('app.natural_work'):{{$employee[0]['salary']['promotion_bonus']}}$</li>
-                                                                <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['specialization_bonus']}}$</li>
-                                                                <li class="list-group-item">@lang('app.specialization_bonus'):{{$employee[0]['salary']['transport']}}$</li>
-                                                                <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['extra_work']}}$</li>
-                                                                <li class="list-group-item">@lang('app.extra_work'):{{$employee[0]['salary']['supplement_salary']}}$</li>
-                                                                <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['rewards']}}$</li>
-                                                                <li class="list-group-item">@lang('app.rewards'):{{$employee[0]['salary']['total_dues']}}$</li>
-                                                                <li class="list-group-item">@lang('app.discount'):{{$employee[0]['salary']['discount']}}$</li>
-                                                                <li class="list-group-item">@lang('app.borrow'):{{$employee[0]['salary']['borrow']}}$</li>
-                                                                <li class="list-group-item">@lang('app.loan'):{{$employee[0]['salary']['loan']}}$</li>
-                                                                <li class="list-group-item">@lang('app.health_insurance'):{{$employee[0]['salary']['health_insurance']}}$</li>
-                                                                <li class="list-group-item">@lang('app.tax_income'):{{$employee[0]['salary']['tax_income']}}$</li>
-                                                                <li class="list-group-item">@lang('app.total_discounts'):{{$employee[0]['salary']['total_discounts']}}$</li>
-                                                                <li class="list-group-item">@lang('app.created_at'):{{$employee[0]['salary']['created_at']}}$</li>
-                                                                <li class="list-group-item">@lang('app.updated_at'):{{$employee[0]['salary']['updated_at']}}$</li>
                                                             </ul>
                                                         </div>'
                                             title="" data-original-title="" aria-describedby="popover696234">
@@ -377,23 +360,6 @@
                                                             <h4 class="mb-20 h4">@lang('app.salary list')</h4>
                                                             <ul class="list-group">
                                                                 <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['fixed_salary']}}$</li>
-                                                                <li class="list-group-item">@lang('app.responsibility_allowance'){{$employee[0]['salary']['responsibility_allowance']}}$</li>
-                                                                <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['natural_work']}}$</li>
-                                                                <li class="list-group-item">@lang('app.natural_work'):{{$employee[0]['salary']['promotion_bonus']}}$</li>
-                                                                <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['specialization_bonus']}}$</li>
-                                                                <li class="list-group-item">@lang('app.specialization_bonus'):{{$employee[0]['salary']['transport']}}$</li>
-                                                                <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['extra_work']}}$</li>
-                                                                <li class="list-group-item">@lang('app.extra_work'):{{$employee[0]['salary']['supplement_salary']}}$</li>
-                                                                <li class="list-group-item">@lang('app.fixed_salary'):{{$employee[0]['salary']['rewards']}}$</li>
-                                                                <li class="list-group-item">@lang('app.rewards'):{{$employee[0]['salary']['total_dues']}}$</li>
-                                                                <li class="list-group-item">@lang('app.discount'):{{$employee[0]['salary']['discount']}}$</li>
-                                                                <li class="list-group-item">@lang('app.borrow'):{{$employee[0]['salary']['borrow']}}$</li>
-                                                                <li class="list-group-item">@lang('app.loan'):{{$employee[0]['salary']['loan']}}$</li>
-                                                                <li class="list-group-item">@lang('app.health_insurance'):{{$employee[0]['salary']['health_insurance']}}$</li>
-                                                                <li class="list-group-item">@lang('app.tax_income'):{{$employee[0]['salary']['tax_income']}}$</li>
-                                                                <li class="list-group-item">@lang('app.total_discounts'):{{$employee[0]['salary']['total_discounts']}}$</li>
-                                                                <li class="list-group-item">@lang('app.created_at'):{{$employee[0]['salary']['created_at']}}$</li>
-                                                                <li class="list-group-item">@lang('app.updated_at'):{{$employee[0]['salary']['updated_at']}}$</li>
                                                             </ul>
                                                         </div>'
                                             title="" data-original-title="" aria-describedby="popover696234">

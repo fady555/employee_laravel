@@ -192,6 +192,47 @@ return [
 
     'add new of degree success'=>'تم اضافه درجه علميه جديده بنجاح',
     'update new degree success'=>'تم التحديث الدرجه العلميه بنجاح',
+//===========================================================================================================
+    //==================================================Accounting && Treasury department =====================================
+    //===========================================================================================================
+
+    'treasury'=>'الخزانه',
+    'month'=>'شهر',
+    'year'=>'سنه',
+    'dashboard'=>'لوحه تحكم الخزانه',
+    'show details salary'=>'اظهار تفاصيل الراتب',
+    'add loan'=>'اضافه قرض',
+    'table salary of month'=>'جدول الراتب الشهرى',
+    'for employee'=>'للموظف',
+    'value'=>'القيمه',
+    'number of day month'=>'عدد ايام الشهر',
+    'number of time work'=>'عدد سعات العمل',
+    'the day salary for employee'=>'الراتب اليومى للموظف',
+    'the hour salary for employee'=>'الراتب بالساعه للموظف',
+    'the hour number overtime for employee'=>'عدد الساعات الاضافيه للموظف',
+    'the hour value salary overtime for employee'=>'قيمه عدد الساعات الاضافيه للموظف',
+    'another increments'=>'اضافه مستحقات اخرى',
+    'number day absence'=>'عدد ايام الغياب',
+    'value day absence'=>'قيمه ايام الغياب',
+    'another discounts'=>'خصمات اخرى',
+    'total due for an employee'=>'اجمالى المستحقات للموظف',
+    'total due for an employee by word'=>'اجمالى المستحقات للموظف بالتفقيه',
+    "accountant's signature"=>"توقيع المحاسب/الصراف",
+    "employee's signature"=>"توقيع المستلم/الموظف",
+    'paid for employee'=>'صرف المرتب للعامل',
+    'add borrow for employee'=>'اضافه سلفه للعامل',
+    'add loan for employee'=>'اضافه قرض للعامل',
+    'add discount for employee'=>'اضافه خصومات للعال',
+    'add another for employee'=>'اضافات اخرى',
+    'write salary'=>'اعد كتابه الراتب المستحق',
+    'first confirm'=>"التاكيد الاول",
+    'last confirm'=>'التاكيد الثانى',
+    'paid status not happen'=>'لم يتم الصرف',
+    'paid complete'=>'تم الصرف',
+    'employees by salary'=>'رواتب الموظفين',
+    'add'=>'اضافه',
+
+
 
 
 
