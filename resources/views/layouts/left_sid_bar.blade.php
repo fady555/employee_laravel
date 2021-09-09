@@ -1,6 +1,6 @@
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="index.html">
+        <a href="javascript">
             <img src="{{asset('them/vendors/images/img.jpg')}}" alt="" class="light-logo rounded">
             {{------
             <img src="{{asset('them/vendors/images/deskapp-logo.svg')}}" alt="" class="dark-logo">
@@ -8,7 +8,7 @@
             <img src="{{asset('them/vendors/images/deskapp-logo-white.svg')}}" alt="" class="light-logo">
              -----}}
             <div class="ml-3">
-                <button type="button" class="btn btn-primary btn-lg">
+                <button type="button" class="btn btn-primary btn-sm">
 
                     @if(session()->has('user_login')) {{\App\Employee::find((session()->get('user_login'))[0]['employee_id'])->{'full_name_'.app()->getLocale()} }} @endif
 

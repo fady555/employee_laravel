@@ -41,7 +41,7 @@ $group = [
 Route::group($group,function (){
 
     //accountant  route
-    Route::get('/treasury/dashboard','AccountantController@index')->name('treasury');
+    Route::get('/treasury/dashboard','AccountantController@index')->name('treasury')->middleware(['premises:admin']);;
     Route::get('/treasury/employees','AccountantController@employees')->name('employees_treasury');
     Route::get('/treasury/employee/{id}/{month?}','AccountantController@salary')->name('employee_treasury');
     Route::get('/treasury/status-paid/{id_em}/{month?}','AccountantController@cheek_paid')->name('employee_treasury_cheek_paid');
