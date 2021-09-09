@@ -239,6 +239,16 @@ return [
     'paid complete'=>'Paid Completed',
     'employees by salary'=>'Employees By Salaries',
     'add'=>'Add',
+    'type of transaction'=>'Type Of Transactions',
+    'name by en'=>'Name By English',
+    'name by ar'=>'Name By Arabic',
+    'name by fr'=>'Name By France',
+    'create type of transaction'=>'Create Type Of Transaction',
+    'recipient'=>'Recipient',
+    'teller/accountant'=>'Teller/Accountant',
+    'add transaction'=>'Add Transaction',
+    'money'=>'Money',
+
 
 
 

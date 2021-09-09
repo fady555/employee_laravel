@@ -16,24 +16,16 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->integer('year');
-            $table->integer('month');
-            $table->integer('number_day_month');
 
-            $table->unsignedBigInteger('type_transaction_id');
-            $table->foreign('type_transaction_id')->references('id')->on('type_transactions')->onDelete('cascade')->onUpdate('cascade');
-
-
-            $table->bigInteger('employee_id')->nullable()->unsigned();
-            $table->index('employee_id')->nullable();
-            $table->foreign('employee_id')->nullable()->references('id')->on('employees')->onDelete('cascade');
-
+            $table->string('teller');
+            $table->string('recipient');
+            $table->string('type');
+            $table->integer('money');
             $table->timestamps();
         });
 
         DB::table('transactions')->insert([
-            ['year'=>2021,'month'=>9,'number_day_month'=>30,'type_transaction_id'=>1,'employee_id'=>1],
-            ['year'=>2021,'month'=>9,'number_day_month'=>30,'type_transaction_id'=>2,'employee_id'=>2],
+
         ]);
     }
 

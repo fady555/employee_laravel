@@ -231,6 +231,11 @@ return [
     'paid complete'=>'تم الصرف',
     'employees by salary'=>'رواتب الموظفين',
     'add'=>'اضافه',
+    'type of transaction'=>'انواع اتعاملات الماليه',
+    'name by en'=>'اسم التعامل بالغه الانجليزيه',
+    'name by ar'=>'اسم التعامل بالغه العربيه',
+    'name by fr'=>'اسم التعامل بالغه الفرنسيه',
+    'create type of transaction'=>'اضافه تعامل مالى',
 
 
 

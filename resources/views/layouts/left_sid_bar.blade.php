@@ -74,6 +74,8 @@
                     <ul class="submenu" style="display: block;">
                         <li><a href="{{route('treasury')}}">@lang('app.dashboard')</a></li>
                         <li><a href="{{route('employees_treasury')}}">@lang('app.employees by salary')</a></li>
+                        <li><a href="{{route('type_transactions')}}">@lang('app.type of transaction')</a></li>
+                        <li><a href="{{route('add_page_transactions')}}">@lang('app.add transaction')</a></li>
                     </ul>
                 </li>
 

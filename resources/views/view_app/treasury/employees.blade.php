@@ -47,17 +47,17 @@
             <!-- multiple select row Datatable start -->
             <div class="card-box mb-30">
                 <div class="pd-20">
-                    <h4 class="text-blue h4">Data Table with multiple select row</h4>
+                    <h4 class="text-blue h4">@lang('app.employees by salary')</h4>
                 </div>
                 <div class="pb-20">
                     <table class="data-table table hover multiple-select-row nowrap">
                         <thead>
                         <tr>
-                            <th class="table-plus datatable-nosort">Name en </th>
-                            <th class="table-plus datatable-nosort">Name ar</th>
-                            <th class="table-plus datatable-nosort">Start Date</th>
-                            <th>Salary</th>
-                            <th class="table-plus datatable-nosort">action</th>
+                            <th class="table-plus datatable-nosort">@lang('app.name by en')</th>
+                            <th class="table-plus datatable-nosort">@lang('app.name by ar')</th>
+                            <th class="table-plus datatable-nosort">@lang('app.start date')</th>
+                            <th>@lang('app.salary')</th>
+                            <th class="table-plus datatable-nosort">@lang('app.action')</th>
                         </tr>
                         </thead>
                         <tbody>

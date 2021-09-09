@@ -41,42 +41,68 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-md-3 col-sm-12 mb-30">
-                    <div class="card text-white bg-warning card-box">
-                        <div class="card-header">Header</div>
-                        <div class="card-header text-right ">الحساب</div>
-                        <div class="card-body">
-                            <h1 class="card-title text-white text-center ">50$</h1>
-                        </div>
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">اضافه تعامل مالى</h4>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-12 mb-30">
-                    <div class="card text-white bg-warning card-box">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title text-white">Primary card title</h5>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 mb-30">
+                        <div class="card text-white bg-warning card-box">
+                            <div class="card-header">Header</div>
+                            <div class="card-header text-right ">الحساب</div>
+                            <div class="card-body">
+                                <h1 class="card-title text-white text-center ">50$</h1>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-12 mb-30">
-                    <div class="card text-white bg-warning card-box">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title text-white">Primary card title</h5>
+                    <div class="col-md-3 col-sm-12 mb-30">
+                        <div class="card text-white bg-warning card-box">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title text-white">Primary card title</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-12 mb-30">
-                    <div class="card text-white bg-warning card-box">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title text-white">Primary card title</h5>
+                    <div class="col-md-3 col-sm-12 mb-30">
+                        <div class="card text-white bg-warning card-box">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title text-white">Primary card title</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 mb-30">
+                        <div class="card text-white bg-warning card-box">
+                            <div class="card-header">Header</div>
+                            <div class="card-body">
+                                <h5 class="card-title text-white">Primary card title</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="pd-20 card-box mb-30">
+                <div class="clearfix">
+                    <div class="pull-left">
+                        <h4 class="text-blue h4">اضافه تعامل مالى</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 mb-30">
+                        <a href="#" class="btn btn-success btn-lg btn-block" role="button" aria-disabled="true">Primary link</a>
+                    </div>
+                    <div class="col-md-3 col-sm-12 mb-30">
+                        <a href="#" class="btn btn-success btn-lg btn-block" role="button" aria-disabled="true">Primary link</a>
+                    </div>
+                    <div class="col-md-3 col-sm-12 mb-30">
+                        <a href="#" class="btn btn-success btn-lg btn-block" role="button" aria-disabled="true">Primary link</a>
+                    </div>
+                </div>
+            </div>
+
 
 
             <div class="row">

@@ -452,7 +452,7 @@
 
                 if(result.value[1] == result.value[0] && result.value[1]== parseInt($('#total_due_for_an_em').text()) ){
                     console.log('success')
-                    $.post('{{route('employee_treasury_paid',['id_em'=>request()->segment(4),'month'=>request()->segment(5)])}}',{'_token':'{{csrf_token()}}'},function (data,status){
+                    $.post('{{route('employee_treasury_paid',['id_em'=>request()->segment(4),'month'=>request()->segment(5)])}}',{'_token':'{{csrf_token()}}','salary':parseInt($('#total_due_for_an_em').text())},function (data,status){
 
                         if (data.trim()){$('#status_paid').text('@lang("app.paid complete")');}
                     })
