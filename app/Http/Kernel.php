@@ -71,6 +71,7 @@ class Kernel extends HttpKernel
         //--------------------------------------------------
         'login'                   => \App\Http\Middleware\Login::class,
         'premises'                => \App\Http\Middleware\Premises::class,
+        'api'                     => \App\Http\Middleware\Api_password::class,
 
     ];
 }
