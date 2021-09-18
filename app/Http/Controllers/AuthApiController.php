@@ -65,7 +65,7 @@ class AuthApiController extends Controller
 
     }
 
-    public function logout(Request $request,$lang = "en"){
+    public function logout($lang = "en"){
         app('translator')->setLocale($lang);
 
         // return auth()->user();
@@ -84,7 +84,7 @@ class AuthApiController extends Controller
 
     }
 
-    public function refresh(Request $request,$lang = "en"){
+    public function refresh($lang = "en"){
 
                                                                 //token refresh
         app('translator')->setLocale($lang);
