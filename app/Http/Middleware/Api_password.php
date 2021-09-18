@@ -16,10 +16,10 @@ class Api_password
     public function handle($request, Closure $next)
     {
 
-        if( \request()->segment(2) != "123456"):
+        if(empty(auth()->user())):
             abort(404);
         endif;
 
-        return $next($request);
+        //return $next($request);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -48,8 +49,25 @@ class Handler extends ExceptionHandler
      *
      * @throws \Throwable
      */
-    public function render($request, Throwable $exception)
+    /*public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
+    }*/
+
+
+    //use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+    Protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if (/*!$request->expectsJson()  and*/ $request->is('api/*')):
+
+            $content = array(
+                'success' => false,
+                'data' => [],
+                'message' => 'Not Authorized',
+            );
+            return response($content)->setStatusCode(404);
+        endif;
     }
+
+
 }

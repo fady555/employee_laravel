@@ -18,6 +18,9 @@ return [
     'username no premises'=>'هذا اليوزر ليس لديه صلاحيات الدخول ',
     'The username field is required'=>'حقل الخاص باسم المستخدم متطلب',
     'The password field is required'=>'حقل كلمه المرور متطلبه',
+    'login complete success'=>'تم تسجيل الدخول بنجاح',
+    'logout complete success'=>'تسجيل الخروج تم بنجاح',
+
     //start page language
     'home'=>'الصفحه الرئسيه',
     'information'=>'معلومات اضافيه',

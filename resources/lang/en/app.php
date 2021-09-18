@@ -18,6 +18,8 @@ return [
     'username no premises'=>'Username No Premises',
     'The username field is required'=>'The Username Field Is Required',
     'The password field is required'=>'The Password Field Is Required',
+    'login complete success'=>'Login Complete Success',
+    'logout complete success'=>'logout Complete Success',
 
     //start page language
     'home'=>'Home',
