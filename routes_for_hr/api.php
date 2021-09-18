@@ -33,24 +33,8 @@ $group = [
 Route::group($group,function (){
 
 
-
-
-    #get employee
-    #----http://localhost/employee_laravel/public/api/employee30305525/ar/employee
-    Route::get('employee',function (){
-        $employee = Employee::with([
-            'jop',
-            'addresses.country',
-            'addresses.city',
-            'salary',
-            'degree',
-            'education',
-            'levelExperience',
-            'contract.type_of_work',
-            'user',
-        ])->paginate(1);
-        return response()->json($employee);
-    });
+    Route::get('show-employee','EmployeeControllerApi@index');
+    Route::post('add-employee','EmployeeControllerApi@store');
 
     #get user
     #post/put user

@@ -18,6 +18,7 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace_applicant = 'App\Http\Controllers\ControllerApplicant';
     protected $namespace_employee  = 'App\Http\Controllers\ControllerEmployee';
     protected $namespace_hr        = 'App\Http\Controllers\ControllerHr';
+    protected $namespace_api_hr        = 'App\Http\Controllers\ControllerApiHr';
     protected $namespace_accountant    = 'App\Http\Controllers\ControllerAccountant';
 
     /**
@@ -122,7 +123,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
             ->middleware('api')
-            ->namespace($this->namespace_hr)
+            ->namespace($this->namespace_api_hr)
             ->group(base_path('routes_for_hr/api.php'));
     }
 }

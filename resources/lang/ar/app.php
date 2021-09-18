@@ -240,7 +240,9 @@ return [
     'name by fr'=>'اسم التعامل بالغه الفرنسيه',
     'create type of transaction'=>'اضافه تعامل مالى',
 
+    //api translate
 
+    'input data have an error message'=>'المدخلات بها متطلبات واخطاء',
 
 
 

@@ -254,6 +254,14 @@ return [
 
 
 
+    //api translate
+
+    'input data have an error message'=>'Input Data Have An Error Message',
+
+
+
+
+
 
 
 
