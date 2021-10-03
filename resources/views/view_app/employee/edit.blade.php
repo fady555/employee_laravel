@@ -17,12 +17,12 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="title">
-                                <h4>Form</h4>
+                                <h4>@lang('app.edit employee')</h4>
                             </div>
                             <nav aria-label="breadcrumb" role="navigation">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">@lang('app.home')</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">@lang('app.information')</li>
+                                    <li class="breadcrumb-item"><a href="index.html">@lang('app.employees')</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">@lang('app.edit employee')</li>
                                 </ol>
                             </nav>
                         </div>
@@ -52,7 +52,7 @@
 
                 <div class="pd-20 card-box mb-30">
                     <div class="clearfix">
-                        <h4 class="text-blue h4">@lang('app.add employee')</h4>
+                        <h4 class="text-blue h4 text-center ">@lang('app.edit employee')</h4>
                     </div>
 
                     <div class="wizard-content">
@@ -463,7 +463,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group @error('password') has-danger @enderror">
                                             <label>@lang('app.password') </label>
-                                            <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control  @error('password') form-control-danger @enderror" onclick="RemoveError('password')" placeholder="@lang('if empty filed the old password consider')" >
+                                            <input type="password" name="password" id="password" value="{{ old('password') }}" class="form-control  @error('password') form-control-danger @enderror" onclick="RemoveError('password')" placeholder="@lang('app.if empty filed the old password consider')" >
                                             @error('password')<div class="form-control-feedback">{{ $message }}</div>@enderror
                                         </div>
                                     </div>

@@ -12,10 +12,32 @@
 @section('main-container')
     <div class="main-container">
         <div class="pd-ltr-20 xs-pd-20-10">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="title">
+                            <h4>@if(empty(request()->segment(4)))@lang('app.add jop') @else @lang('app.edit jop') @endif</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">@lang('app.jops')</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">@if(empty(request()->segment(4)))@lang('app.show jop and add')@else @lang('app.edit jop') @endif</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-md-6 col-sm-12 text-right">
+                        <div class="dropdown">
+                            <a class="btn btn-primary" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                {{date('D(d)-M(m)-Y')}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="pd-20 card-box mb-30">
                 <div class="clearfix">
-                    <div class="pull-left">
-                        <h4 class="text-blue h4">@if(empty(request()->segment(4)))@lang('app.add jop') @else @lang('app.edit jop') @endif </h4>
+                    <div class=" text-center">
+                        <h4 class="text-blue h4 ">@if(empty(request()->segment(4)))@lang('app.add jop') @else @lang('app.edit jop') @endif </h4>
                     </div>
 
                 </div>
@@ -146,7 +168,7 @@
 
                 <!-- Simple Datatable start -->
                 <div class="clearfix">
-                    <div class="pull-left">
+                    <div class="text-center">
                         <h4 class="text-blue h4">@lang('app.jops')</h4>
                     </div>
                 </div>
@@ -234,56 +256,71 @@
         }
     </script>
 
-<script>
+    <script>
 
-    function DeleteJop(id,NikName){
+        function DeleteJop(id,NikName){
 
-        swal({
-            title: "@lang('app.sign jop')" +  '(' + NikName+ ')' + "@lang('app.to delete in input request')",
-            input: 'text',
-            showCancelButton: true,
-            showConfirmButton: true,
-            confirmButtonText: 'Submit',
-            showLoaderOnConfirm: true,
-            confirmButtonClass: 'btn btn-success',
-            cancelButtonClass: 'btn btn-danger',
-            preConfirm: function (nik_name) {
+            swal({
+                title: "@lang('app.sign jop')" +  '(' + NikName+ ')' + "@lang('app.to delete in input request')",
+                input: 'text',
+                showCancelButton: true,
+                showConfirmButton: true,
+                confirmButtonText: 'Submit',
+                showLoaderOnConfirm: true,
+                confirmButtonClass: 'btn btn-success',
+                cancelButtonClass: 'btn btn-danger',
+                preConfirm: function (nik_name) {
 
-               if(nik_name === NikName){
+                   if(nik_name === NikName){
 
-                   $.post('{{route('delete_jop')}}' +'/'+ id,{'_token':'{{@csrf_token()}}'},function (one,two,three){
+                       $.post('{{route('delete_jop')}}' +'/'+ id,{'_token':'{{@csrf_token()}}'},function (one,two,three){
 
-                       if(one == 1){
-                           swal({
-                                   position: 'top-end',
-                                   type: 'success',
-                                   title: "@lang('app.Your work has been compelete')",
-                                   showConfirmButton: false,
-                                   timer: 1500
-                               })
-                           window.location.reload()
-                       }else {
-                           swal({
-                                   type: 'error',
-                                   title: '{{__("app.no jop exist")}}',
-                                   text: '{{__("app.something went wrong")}}',
-                               })
-                       }
-
-
-                   })
-                   //console.log('delete')
-
-               }else {}
-
-            }
+                           if(one == 1){
+                               swal({
+                                       position: 'top-end',
+                                       type: 'success',
+                                       title: "@lang('app.Your work has been compelete')",
+                                       showConfirmButton: false,
+                                       timer: 1500
+                                   })
+                               window.location.reload()
+                           }else {
+                               swal({
+                                       type: 'error',
+                                       title: '{{__("app.no jop exist")}}',
+                                       text: '{{__("app.something went wrong")}}',
+                                   })
+                           }
 
 
-    })
+                       })
+                       //console.log('delete')
 
-    }
-</script>
+                   }else {}
 
+                }
+
+
+        })
+
+        }
+    </script>
+
+    <script>
+        function sweetSuc(message){
+            swal({
+                position: 'top-end',
+                type: 'success',
+                title: message,
+                showConfirmButton: false,
+                timer: 3000,
+            })
+        }
+
+        @if(session()->has('suc'))
+        sweetSuc("{{session()->get('suc')}}")
+        @endif
+    </script>
 
 
     @if($errors->any())

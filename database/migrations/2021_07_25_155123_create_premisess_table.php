@@ -17,9 +17,9 @@ class CreatePremisessTable extends Migration
         Schema::create('premisess', function (Blueprint $table) {
             $table->id();
             $table->string('nik_name');
-            $table->text('description_en')->nullable();
-            $table->text('description_ar')->nullable();
-            $table->text('description_fr')->nullable();
+            $table->text('description_en')->default('');
+            $table->text('description_ar')->default('');
+            $table->text('description_fr')->default('');
             $table->timestamps();
         });
 

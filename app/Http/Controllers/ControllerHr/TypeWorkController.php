@@ -20,17 +20,20 @@ class TypeWorkController extends Controller
     }
     public function create(Request $request){
 
-        $type_work = $request->validate([
+        $rules = [
+            'work_type_en'=>['required','string'],
+            'work_type_ar'=>['required','string',new Arabic()],
+            'work_type_fr'=>['required','string'],
+            'description_en'=>['nullable','string'],
+            'description_ar'=>['nullable','string',new Arabic()],
+            'description_fr'=>['nullable','string'],
+        ];
 
-            'work_type_en'=>['required'],
-            'work_type_ar'=>['required'],
-            'work_type_fr'=>['required'],
-            'description_en'=>[],
-            'description_ar'=>[],
-            'description_fr'=>[],
-        ]);
+        $result = validator($request->all(),$rules,[],$this->attValidate());
 
-        TypeOfWork::create($type_work);
+        if($result->fails()){return back()->withErrors($result)->withInput();}
+
+        TypeOfWork::create($request->all());
 
         session()->flash('suc',trans('app.add new type of work success'));
 
@@ -48,16 +51,20 @@ class TypeWorkController extends Controller
     }
     public function update(Request $request,$id){
 
-        $type_work = $request->validate([
-            'work_type_en'=>['required'],
-            'work_type_ar'=>['required'],
-            'work_type_fr'=>['required'],
-            'description_en'=>[],
-            'description_ar'=>[],
-            'description_fr'=>[],
-        ]);
+        $rules = [
+            'work_type_en'=>['required','string'],
+            'work_type_ar'=>['required','string',new Arabic()],
+            'work_type_fr'=>['required','string'],
+            'description_en'=>['nullable','string'],
+            'description_ar'=>['nullable','string',new Arabic()],
+            'description_fr'=>['nullable','string'],
+        ];
 
-        TypeOfWork::find($id)->update($type_work);
+        $result = validator($request->all(),$rules,[],$this->attValidate());
+
+        if($result->fails()){return back()->withErrors($result)->withInput();}
+
+        TypeOfWork::find($id)->update($request->all());
 
         session()->flash('suc',trans('app.update new type of work success'));
 
@@ -74,5 +81,16 @@ class TypeWorkController extends Controller
         TypeOfWork::find($id)->delete();
 
         return true;
+    }
+
+    public function attValidate(){
+        return [
+            'work_type_en'=>trans('app.type of work name english'),
+            'work_type_ar'=>trans('app.type of work name arabic'),
+            'work_type_fr'=>trans('app.type of work name france'),
+            'description_en'=>trans('app.type of work description english'),
+            'description_ar'=>trans('app.type of work description arabic'),
+            'description_fr'=>trans('app.type of work description france'),
+        ];
     }
 }

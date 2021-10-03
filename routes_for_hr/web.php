@@ -125,6 +125,17 @@ Route::group($group,function (){
     Route::post('/degree/edit/{id?}','ControllerDegree@update')->name('edit_degree');
 
     Route::post('/degree/delete/{id?}','ControllerDegree@destroy')->name('delete_degree');
+
+
+    Route::get('/show-file',function (){
+
+        $path = storage_path('app/'.request()->data);
+
+        return response()->file( $path);
+
+
+    })->name('show.file');
+
 });
 
 
@@ -182,6 +193,8 @@ Route::get('generate-username',function (){
 
 
 
+
+Route::get('cc')->middleware('auth');
 
 
 

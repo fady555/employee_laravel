@@ -18,13 +18,17 @@ class EducationController extends Controller
     }
     public function create(Request $request){
 
-        $education = $request->validate([
-            'education_status_ar'=>['required','string'],
+        $rules = [
+            'education_status_ar'=>['required','string',new Arabic()],
             'education_status_en'=>['required','string'],
             'education_status_fr'=>['required','string'],
-        ]);
+        ];
 
-        EducationStatus::create($education);
+        $result = validator($request->all(),$rules,[],$this->attValidate());
+
+        if($result->fails()){return back()->withErrors($result)->withInput();}
+
+        EducationStatus::create($request->all());
 
         session()->flash('suc',trans('app.add new of education success'));
 
@@ -37,18 +41,22 @@ class EducationController extends Controller
         $educations = EducationStatus::get();
         $education  = EducationStatus::find($id);
 
-        return view('view_app.type_work')->with(['educations'=>$educations,'education'=>$education]);
+        return view('view_app.educations')->with(['educations'=>$educations,'education'=>$education]);
 
     }
     public function update(Request $request,$id){
 
-        $education = $request->validate([
-            'education_status_ar'=>['required','string'],
+        $rules = [
+            'education_status_ar'=>['required','string',new Arabic()],
             'education_status_en'=>['required','string'],
             'education_status_fr'=>['required','string'],
-        ]);
+        ];
 
-        EducationStatus::find($id)->update($education);
+        $result = validator($request->all(),$rules,[],$this->attValidate());
+
+        if($result->fails()){return back()->withErrors($result)->withInput();}
+
+        EducationStatus::find($id)->update($request->all());
 
         session()->flash('suc',trans('app.update new education success'));
 
@@ -64,5 +72,13 @@ class EducationController extends Controller
         EducationStatus::find($id)->delete();
 
         return true;
+    }
+
+    private function attValidate(){
+        return [
+            'education_status_ar'=>trans('app.education name arabic'),
+            'education_status_en'=>trans('app.education name english'),
+            'education_status_fr'=>trans('app.education name france'),
+        ];
     }
 }

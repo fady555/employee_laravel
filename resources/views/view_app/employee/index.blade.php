@@ -89,7 +89,7 @@
                 <!-- Export Datatable End -->
             </div>
             <div class="footer-wrap pd-20 mb-20 card-box">
-                DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+                @lang('app.show employees')
             </div>
         </div>
     </div>
@@ -115,10 +115,10 @@
                 cancelButtonClass: 'btn btn-danger margin-5',
                 buttonsStyling: false
             }).then(function (result) {
-                //console.log(result['dismiss']);
+                console.log(result);
                 if(result['dismiss'] == "cancel"){
                     console.log('you are cancel delete'+id_employee);
-                }else{
+                }else if(result['value'] == true){
                     //if your choose yes delte
                     console.log('you are submit delete'+id_employee);
                     var x = '{{route('delete_employee')}}' + '/' + id_employee;

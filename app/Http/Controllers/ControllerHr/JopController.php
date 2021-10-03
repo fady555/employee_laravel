@@ -26,7 +26,7 @@ class JopController extends Controller
     {
         //return $request->all();
 
-        $new_jop = $request->validate([
+        $rules = [
             'name_en'=>['required','string'],
             'name_ar'=>['required','string',new Arabic()],
             'name_fr'=>['required','string'],
@@ -34,11 +34,13 @@ class JopController extends Controller
             'description_en'=>['nullable','string'],
             'description_ar'=>['nullable','string',new Arabic()],
             'description_fr'=>['nullable','string'],
-        ]);
+        ];
 
-        //if($new_jop->fails()){return redirect()->back()->withErrors($new_jop)->withInput();}
+        $result = validator($request->all(),$rules,[],$this->attValidate());
 
-        Jop::create($new_jop);
+        if($result->fails()){return back()->withErrors($result)->withInput();}
+
+        Jop::create($request->all());
 
         return redirect()->back();
     }
@@ -67,7 +69,7 @@ class JopController extends Controller
         //return $request->all();
         //return $id;
 
-        $edit_jop = $request->validate([
+        $rules = [
             'name_en'=>['required','string'],
             'name_ar'=>['required','string',new Arabic()],
             'name_fr'=>['required','string'],
@@ -75,12 +77,18 @@ class JopController extends Controller
             'description_en'=>['nullable','string'],
             'description_ar'=>['nullable','string',new Arabic()],
             'description_fr'=>['nullable','string'],
-        ]);
+        ];
+
+        $result = validator($request->all(),$rules,[],$this->attValidate());
+
+        if($result->fails()){return back()->withErrors($result)->withInput();}
 
 
         //return $id;
         $jopp = Jop::find($id);
-        $jopp->update($edit_jop);
+        $jopp->update($request->all());
+
+        session()->flash('suc',trans('app.update new jop success'));
         return redirect()->back();
     }
 
@@ -103,5 +111,17 @@ class JopController extends Controller
 
         return true;
 
+    }
+
+    private function attValidate(){
+        return [
+            'name_en'=>trans('app.jop name english'),
+            'name_ar'=>trans('app.jop name arabic'),
+            'name_fr'=>trans('app.jop name france'),
+            'nic_name'=>trans('app.nik name'),
+            'description_en'=>trans('app.english description'),
+            'description_ar'=>trans('app.arabic description'),
+            'description_fr'=>trans('app.france description'),
+        ];
     }
 }

@@ -20,13 +20,18 @@ class ExperienceController extends Controller
     public function create(Request $request){
         //return $request->all();
 
-        $experience = $request->validate([
+        $rules = [
             'level_experience_en'=>['required','string'],
             'level_experience_ar'=>['required','string',new Arabic()],
             'level_experience_fr'=>['required','string'],
-        ]);
+        ];
 
-        LevelExperience::create($experience);
+
+        $result = validator($request->all(),$rules,[],$this->attValidate());
+
+        if($result->fails()){return back()->withErrors($result)->withInput();}
+
+        LevelExperience::create($request->all());
 
         session()->flash('suc',trans('app.add new experience success'));
 
@@ -44,13 +49,18 @@ class ExperienceController extends Controller
     }
     public function update(Request $request,$id){
         //return  $request;
-        $experience = $request->validate([
+        $rules = [
             'level_experience_en'=>['required','string'],
             'level_experience_ar'=>['required','string',new Arabic()],
             'level_experience_fr'=>['required','string'],
-        ]);
+        ];
 
-        LevelExperience::find($id)->update($experience);
+
+        $result = validator($request->all(),$rules,[],$this->attValidate());
+
+        if($result->fails()){return back()->withErrors($result)->withInput();}
+
+        LevelExperience::find($id)->update($request->all());
 
         session()->flash('suc',trans('app.update new experience success'));
 
@@ -67,6 +77,14 @@ class ExperienceController extends Controller
         LevelExperience::find($id)->delete();
 
         return true;
+    }
+
+    private function attValidate(){
+        return [
+            'level_experience_en'=>trans('app.experience name english'),
+            'level_experience_ar'=>trans('app.experience name arabic'),
+            'level_experience_fr'=>trans('app.experience name france'),
+        ];
     }
 
 

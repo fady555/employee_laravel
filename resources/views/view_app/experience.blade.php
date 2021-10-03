@@ -14,7 +14,7 @@
         <div class="pd-ltr-20 xs-pd-20-10">
             <div class="pd-20 card-box mb-30">
                 <div class="clearfix">
-                    <div class="pull-left">
+                    <div class=" text-center">
                         <h4 class="text-blue h4">@if(empty(request()->segment(4)))@lang('app.create level experience') @else @lang('app.edit level experience') @endif </h4>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
 
             <!-- Simple Datatable start -->
                 <div class="clearfix">
-                    <div class="pull-left">
+                    <div class="text-center">
                         <h4 class="text-blue h4">@lang('app.level experience')</h4>
                     </div>
                 </div>

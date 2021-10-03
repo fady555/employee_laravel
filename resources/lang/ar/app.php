@@ -51,7 +51,7 @@ return [
     'experience description'=>'وصف الخبره',
     'degree'=>'الدرجه العلميه',
     'education'=>'التعليم',
-    'level experience'=>'مستوى الخبره',
+    'level experience'=>'مستويات الخبره',
     'contract'=>'العقد',
     'type of work'=>'نوع العمل',
     'user'=>'المستخدم',
@@ -152,6 +152,7 @@ return [
     //-----------------------------------------------Type Of Work --------------------
     'edit type of work'=>'التعديل على مستوى الخبره',
 
+
     'type of work name english'=>'اسم نوع العمل بالغه الانجليزيه',
     'type of work name arabic'=>'اسم نوع العمل بالغه العربيه',
     'type of work name france'=>'اسم نوع العمل بالغه الفرنسيه',
@@ -165,7 +166,7 @@ return [
     //'are you sure to delete'=>'Are You Sure To Delete',
 
     'add new type of work success'=>'اضافه نوع عمل جديد تم بنجاح',
-    'update new type of work success'=>'تديث نوع العمل تم بنجاح',
+    'update new type of work success'=>'تحديث نوع العمل تم بنجاح',
     //-----------------------------------------------education  --------------------
     'edit education'=>'التعديل على الحاله التعليم',
 
@@ -184,9 +185,9 @@ return [
     //-----------------------------------------------degree  --------------------
     'edit degree'=>'التعديل على الدرجه العلميه',
 
-    'degree name english'=>'الدرجه العلمي بالغه الانجليزيه',
-    'degree name arabic'=>'الدرجه العلمي بالغه العربيه',
-    'degree name france'=>'الدرجه العلمي بالغه الفرنسيه',
+    'degree name english'=>'الدرجه العلميه بالغه الانجليزيه',
+    'degree name arabic'=>'الدرجه العلميه بالغه العربيه',
+    'degree name france'=>'الدرجه العلميه بالغه الفرنسيه',
 
 
     'create/update degree'=>'اضافه/تعديل على الدرجه العلميه',
@@ -245,6 +246,11 @@ return [
     'input data have an error message'=>'المدخلات بها متطلبات واخطاء',
 
 
+    'user premises'=>'صلاحيات اليوزر',
+    'show employee'=>'عرض بيانات الموظف',
+    'show jop and add'=>'عرض واضافه الوظائف',
+    'types of work'=>'انواع العمل ',
+    'update new jop success'=>'التعديل على الوظيفه تم بنجاح'
 
 
 
