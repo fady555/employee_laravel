@@ -44,6 +44,7 @@ class EmployeeController extends Controller
             'user',
         ])->where('id',$id)->first();
         return view('view_app.employee.show')->with('employee',$employee);
+        //return $employee;
     }
 
     public function edit($id)
@@ -82,8 +83,8 @@ class EmployeeController extends Controller
             'email'=>['required','email','unique:employees,email,'.$id],
             'phone'=>['required',new Phone,'regex:/^([0-9\s\-\+\(\)]*)$/'],
             'personal_identity_id'=>['required','digits_between:1,14','unique:employees,personal_identity_id,'.$id],
-            'personal_identity_img'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
-            'avatar'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
+            'personal_identity_img'=>['file','mimes:pdf'],
+            'avatar'=>['file','mimes:pdf'],
             'name_of_bank'=>['max:255'],
             'number_of_account'=>['nullable','numeric'],
             'number_of_wif_husband'=>['nullable','integer','between:1,4'],
@@ -94,7 +95,7 @@ class EmployeeController extends Controller
             'data_of_start_work'=>['required','string'],
             'time_of_attendees'=>['required','string'],
             'time_of_going'=>['required','string'],
-            'contract'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
+            'contract'=>['file','mimes:pdf'],
             'fixed_salary'=>['numeric'],
             // THE THIREd three SECTION qalification
             'education_status_id'=>['required','exists:education_statuses,id'],
@@ -140,7 +141,7 @@ class EmployeeController extends Controller
         $contract = ['type_id'=>$request->type_id];
 
         if($request->contract_file != null):
-            $contract['contract_file']= $request->file('contract_file')->store('/contract');
+            $contract['contract_file']= $request->file('contract_file')->store('/contracts');
         endif;
         $employee->contract()->update($contract);
     #edit employee
@@ -435,8 +436,8 @@ class EmployeeController extends Controller
             'email'=>['required','email','unique:employees,email'],
             'phone'=>['required',new Phone,'regex:/^([0-9\s\-\+\(\)]*)$/'],
             'personal_identity_id'=>['required','digits_between:1,14','unique:employees,personal_identity_id'],
-            'personal_identity_img'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
-            'avatar'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
+            'personal_identity_img'=>['file','mimes:pdf'],
+            'avatar'=>['file','mimes:pdf'],
             'name_of_bank'=>['max:255'],
             'number_of_account'=>['nullable','numeric'],
             'number_of_wif_husband'=>['nullable','integer','between:0,4'],
@@ -447,7 +448,7 @@ class EmployeeController extends Controller
             'data_of_start_work'=>['required','string'],
             'time_of_attendees'=>['required','string'],
             'time_of_going'=>['required','string'],
-            'contract'=>['file','mimes:jpeg,png,jpg,docx,pdf'],
+            'contract'=>['file','mimes:pdf'],
             'fixed_salary'=>['numeric'],
             // THE THIREd three SECTION qalification
             'education_status_id'=>['required','exists:education_statuses,id'],

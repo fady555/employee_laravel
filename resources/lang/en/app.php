@@ -265,6 +265,7 @@ return [
     'show jop and add'=>'Show and Add jops',
     'types of work'=>'Type Of Work ',
     'update new jop success'=>'Update Jop Success',
+    'employee contract'=>'Employee Contract',
 
 
 

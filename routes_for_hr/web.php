@@ -129,9 +129,9 @@ Route::group($group,function (){
 
     Route::get('/show-file',function (){
 
-        $path = storage_path('app/'.request()->data);
+        //$path = storage_path('app/'.request()->data);
 
-        return response()->file( $path);
+        return response()->file( storage_path('app/'.request()->data) );
 
 
     })->name('show.file');
@@ -193,8 +193,6 @@ Route::get('generate-username',function (){
 
 
 
-
-Route::get('cc')->middleware('auth');
 
 
 

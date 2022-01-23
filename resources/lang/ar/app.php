@@ -250,8 +250,9 @@ return [
     'show employee'=>'عرض بيانات الموظف',
     'show jop and add'=>'عرض واضافه الوظائف',
     'types of work'=>'انواع العمل ',
-    'update new jop success'=>'التعديل على الوظيفه تم بنجاح'
+    'update new jop success'=>'التعديل على الوظيفه تم بنجاح',
 
+    'employee contract'=>'عقد العمل',
 
 
 
